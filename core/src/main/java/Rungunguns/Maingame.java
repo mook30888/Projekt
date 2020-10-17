@@ -13,7 +13,7 @@ public class Maingame extends BasicGame {
 	
 	@Override
     public void initialise() {
-    	texture = new Texture("Player/planes.jpg");
+    	texture = new Texture("Player/Player agent.png");
         playerTexture = new PlayerTexture();
     }
     

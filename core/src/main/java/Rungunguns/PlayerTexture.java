@@ -8,7 +8,7 @@ import org.mini2Dx.core.graphics.SpriteSheet;
 
 
 public class PlayerTexture {
-    private static final String PLAYER_SPRITE_SHEET_LOCATION = "Player/planes.jpg";
+    private static final String PLAYER_SPRITE_SHEET_LOCATION = "Player/Player agent.png";
 
     private float frameDuration = 0.025f;
 
