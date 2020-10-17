@@ -67,23 +67,11 @@ public class Player {
         if (isJumping) {
             settingPlayerJumping();
         } else {
-            playerYAccel = GRAVITY;
+            playerYAccel += GRAVITY;
         }
 
-        if(isRotating) {
-            if (playerYAccel > 0) {
-                playerRotation = Math.min(playerYAccel, 45f);
-                playerCollisionBox.setRotationAround(PLAYER_X, playerY + playerTextureWidth, playerRotation);
-            } else if (playerYAccel < 0) {
-                playerRotation = Math.max(playerYAccel, -45f);
-                playerCollisionBox.setRotationAround(PLAYER_X, playerY + playerTextureWidth, playerRotation);
-            } else {
-                playerRotation = 0;
-                playerCollisionBox.setRotationAround(PLAYER_X, playerY + playerTextureWidth, playerRotation);
-            }
-        }
 
-        //calcPlayerYPos();
+        calcPlayerYPos();
     }
 
 
@@ -102,6 +90,11 @@ public class Player {
             DrawPlayerCollisionBox(g);
         }
 
+    }
+
+    void calcPlayerYPos() {
+        playerY += playerYAccel;
+        playerCollisionBox.setY(playerY);
     }
 
     float getPlayerY() {
