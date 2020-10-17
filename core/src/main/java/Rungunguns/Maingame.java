@@ -50,7 +50,7 @@ public class Maingame extends BasicGame {
         inGame = false;
         isDead = false;
         playerScore = 0;
-
+        inputHandler = new InputHandler();
 
         playerTexture = new PlayerTexture();
 
@@ -67,26 +67,14 @@ public class Maingame extends BasicGame {
     @Override
     public void update(float delta) {
         if (isDead) {
-            if (inputHandler.spacePressed()) {
-                initialise();
-            }
-        } else {
 
+        } else {
             if (inputHandler.spacePressed()) {
                 GRAVITY = GAME_GRAVITY;
                 inGame = true;
-            }else{
-
-
-                if (player.getPlayerY() < 0 || player.getPlayerY() > GAME_HEIGHT - player.getPlayerTextureHeight()) {
-                    setDead();
-                }
-                player.update(inputHandler.spacePressed(), delta);
             }
 
-
-
-
+            player.update(inputHandler.spacePressed(), delta);
 
         }
 
