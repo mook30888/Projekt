@@ -13,7 +13,7 @@ public class PlayerTexture {
     private float frameDuration = 0.12f;
 
     Texture spriteTexture = new Texture(PLAYER_SPRITE_SHEET_LOCATION);
-    SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,134,139);
+    SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,67,70);
     Animation playerAnimation = new Animation();
 
 
