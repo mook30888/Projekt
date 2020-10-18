@@ -34,6 +34,8 @@ public class Maingame extends BasicGame {
     InputHandler inputHandler;
     Player player;
     PlayerTexture playerTexture;
+    TopBottomEdge ground1, ground2;
+    TopBottomEdgeTexture topBottomEdgeTexture;
 
 
     CollisionBox[] collisionRectanglesBottom, collisionRectanglesTop;
@@ -53,6 +55,11 @@ public class Maingame extends BasicGame {
         inputHandler = new InputHandler();
 
         playerTexture = new PlayerTexture();
+
+        topBottomEdgeTexture = new TopBottomEdgeTexture();
+        ground1 = new TopBottomEdge(topBottomEdgeTexture);
+        ground2 = new TopBottomEdge(topBottomEdgeTexture);
+        ground2.generateHazardAtPos(GAME_WIDTH, GAME_HEIGHT - ground1.getGroundTextureHeight());
 
 
         player = new Player(playerTexture, IS_ROTATING, IS_TESTING);
@@ -75,6 +82,8 @@ public class Maingame extends BasicGame {
             }
 
             player.update(inputHandler.spacePressed(), delta);
+            ground1.update();
+            ground2.update();
 
         }
 
@@ -89,6 +98,8 @@ public class Maingame extends BasicGame {
     public void render(Graphics g) {
         fitViewport.apply(g);
         player.render(g);
+        ground1.render(g);
+        ground2.render(g);
     }
 
     void setDead() {

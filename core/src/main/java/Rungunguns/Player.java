@@ -17,7 +17,6 @@ public class Player {
 
     private float playerY;
     private float playerYAccel = 0.0f;
-    private float playerRotation;
     private float[] playerCollisionVertices;
 
     CollisionBox playerCollisionBox;
@@ -83,7 +82,6 @@ public class Player {
 
         }
 
-        playerTexture.playerAnimation.setRotation(playerRotation);
         playerTexture.playerAnimation.draw(g,PLAYER_X,getPlayerY());
 
         if(isTesting){
