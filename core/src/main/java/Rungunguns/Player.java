@@ -28,7 +28,7 @@ public class Player {
         playerTextureHeight = playerTexture.playerSpriteSheet.getSprite(0).getHeight();
         playerTextureWidth = playerTexture.playerSpriteSheet.getSprite(0).getWidth();
         playerCollisionBox = generateCollisionRectAt(PLAYER_X, playerY);
-        playerY = 300-playerTextureHeight/2;
+        playerY = 300-playerTextureHeight/2 + 20 ;
         this.isRotating = isRotating;
         this.isTesting = isTesting;
         playerTexture.playerAnimation.setLooping(true);
@@ -56,7 +56,7 @@ public class Player {
     }
 
 
-    void update(boolean isJumping, TopBottomEdge ground2,TopBottomEdge ground1, float delta) {
+    void update(boolean isJumping,float y , float delta) {
 
         playerCollisionBox.preUpdate();
 
@@ -66,7 +66,7 @@ public class Player {
         if (isJumping) {
             settingPlayerJumping();
         } else {
-            if(playerY <= ground2.getGroundTextureHeight() ||playerY <= ground1.getGroundTextureHeight() )
+            if(playerY+playerTextureHeight <= y )
                 playerYAccel += GRAVITY;
             else playerYAccel = 0;
         }

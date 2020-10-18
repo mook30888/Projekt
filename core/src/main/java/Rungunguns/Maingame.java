@@ -59,8 +59,7 @@ public class Maingame extends BasicGame {
         topBottomEdgeTexture = new TopBottomEdgeTexture();
         ground1 = new TopBottomEdge(topBottomEdgeTexture);
         ground2 = new TopBottomEdge(topBottomEdgeTexture);
-        ground2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT - ground2.getGroundTextureHeight());
-
+        ground2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT - ground1.getGroundTextureHeight());
 
         player = new Player(playerTexture, IS_ROTATING, IS_TESTING);
 
@@ -81,7 +80,7 @@ public class Maingame extends BasicGame {
                 inGame = true;
             }
 
-            player.update(inputHandler.spacePressed(),ground2,ground1, delta);
+            player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
 
