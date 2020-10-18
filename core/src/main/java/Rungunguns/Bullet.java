@@ -4,34 +4,37 @@ import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.engine.geom.CollisionPoint;
 
+import static Rungunguns.Maingame.FLYING_SPEED;
+
 
 public class Bullet extends Hazards {
     BulletTexture bulletTexture;
-    private static float BULLET_SPEED = 0.3f;
+    private static float BULLET_SPEED = 20f;
 
     float bulletHeight;
     float bulletWidth;
-    float halfbulletWidth;
 
     private float collisionRectHeight;
     private float collisionRectWidth = 10f;
 
-    CollisionBox collisionRectTop, collisionRectBottom;
+    CollisionBox collisionBox;
 
-    public Bullet(BulletTexture bulletTexture) {
-        this.bulletTexture = bulletTexture;
+
+    public Bullet() {
+        this.bulletTexture = new BulletTexture();
         bulletHeight = bulletTexture.bullet.getHeight();
         bulletWidth = bulletTexture.bullet.getWidth();
         collisionRectHeight = bulletHeight;
-        halfbulletWidth = bulletWidth / 2.0f;
+    }
+    @Override
+    public void update(){
+        point.preUpdate();
+        point.set(point.getX() + BULLET_SPEED, point.getY());
     }
 
-
-    void generateHazardAtPos(float xPos, float yPos) {
-        super.generateHazardAtPos(xPos, yPos);
-
+    public void render(Graphics g){
+        g.drawTexture(bulletTexture.getBullet(), point.getX(),point.getY());
     }
-
 
 
 

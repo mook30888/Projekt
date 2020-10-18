@@ -1,10 +1,15 @@
 package Rungunguns;
 
+import com.badlogic.gdx.Gdx;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
 import org.mini2Dx.core.graphics.viewport.Viewport;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Maingame extends BasicGame {
 	public static final String GAME_IDENTIFIER = "Rungungun";
@@ -24,7 +29,7 @@ public class Maingame extends BasicGame {
     private boolean inGame, isDead;
     private static int playerScore, highScore;
 
-
+    private List<Bullet> bullet = new ArrayList<Bullet>();
 
     Viewport fitViewport;
     InputHandler inputHandler;
@@ -81,7 +86,21 @@ public class Maingame extends BasicGame {
                 GRAVITY = GAME_GRAVITY;
                 inGame = true;
             }
+            if (inputHandler.zPressed()){
+                Bullet bul = new Bullet();
+                bullet.add(bul);
+                bul.generateHazardAtPos(Player.PLAYER_X, randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
 
+            }
+            if (inputHandler.xPressed()){
+                Bullet bul = new Bullet();
+                bullet.add(bul);
+                bul.generateHazardAtPos(Player.PLAYER_X, randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+
+            }
+            for (Bullet bul:bullet) {
+                bul.update();
+            }
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
@@ -99,18 +118,28 @@ public class Maingame extends BasicGame {
     
     @Override
     public void render(Graphics g) {
+
         fitViewport.apply(g);
         background1.render(g);
         background2.render(g);
         player.render(g);
         ground1.render(g);
         ground2.render(g);
+        for (Bullet bul:bullet) {
+            bul.render(g);
+        }
     }
 
     void setDead() {
         isDead = false;   //อมตะ
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
+    }
+
+    float randomFloatMinMax(float min, float max) {
+        float leftLimit = min;
+        float rightLimit = max;
+        return leftLimit + new Random().nextFloat() * (rightLimit - leftLimit);
     }
 
 //    void checkCollisions() {

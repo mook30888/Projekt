@@ -109,22 +109,4 @@ public class Player {
         return playerTextureHeight;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
