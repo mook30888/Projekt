@@ -8,20 +8,22 @@ import org.mini2Dx.core.graphics.SpriteSheet;
 
 
 public class PlayerTexture {
-    private static final String PLAYER_SPRITE_SHEET_LOCATION = "Player/Player agent.png";
+    private static final String PLAYER_SPRITE_SHEET_LOCATION = "Player/Player.png";
 
-    private float frameDuration = 0.025f;
+    private float frameDuration = 0.12f;
 
     Texture spriteTexture = new Texture(PLAYER_SPRITE_SHEET_LOCATION);
-    SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,88,73);
+    SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,55,70);
     Animation playerAnimation = new Animation();
 
 
     public PlayerTexture(){
-        playerAnimation.addFrame(playerSpriteSheet.getSprite(1),frameDuration);
-        playerAnimation.addFrame(playerSpriteSheet.getSprite(9),frameDuration);
-        playerAnimation.addFrame(playerSpriteSheet.getSprite(12),frameDuration);
-        playerAnimation.addFrame(playerSpriteSheet.getSprite(9),frameDuration);
+        playerAnimation.addFrame(playerSpriteSheet.getSprite(0),frameDuration);
+       // playerAnimation.addFrame(playerSpriteSheet.getSprite(1),frameDuration);
+        playerAnimation.addFrame(playerSpriteSheet.getSprite(2),frameDuration);
+      //  playerAnimation.addFrame(playerSpriteSheet.getSprite(3),frameDuration);
+      //  playerAnimation.addFrame(playerSpriteSheet.getSprite(4),frameDuration);
+        playerAnimation.addFrame(playerSpriteSheet.getSprite(5),frameDuration);
     }
 
 }
