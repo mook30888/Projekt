@@ -1,15 +1,10 @@
 package Rungunguns;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
 import org.mini2Dx.core.graphics.viewport.Viewport;
-
-import java.util.Random;
 
 public class Maingame extends BasicGame {
 	public static final String GAME_IDENTIFIER = "Rungungun";
@@ -30,12 +25,15 @@ public class Maingame extends BasicGame {
     private static int playerScore, highScore;
 
 
+
     Viewport fitViewport;
     InputHandler inputHandler;
     Player player;
     PlayerTexture playerTexture;
     TopBottomEdge ground1, ground2;
     TopBottomEdgeTexture topBottomEdgeTexture;
+    Background background1, background2;
+    BackgroundTexture backgroundTexture;
 
 
     CollisionBox[] collisionRectanglesBottom, collisionRectanglesTop;
@@ -55,11 +53,15 @@ public class Maingame extends BasicGame {
         inputHandler = new InputHandler();
 
         playerTexture = new PlayerTexture();
+        backgroundTexture = new BackgroundTexture();
 
         topBottomEdgeTexture = new TopBottomEdgeTexture();
         ground1 = new TopBottomEdge(topBottomEdgeTexture);
         ground2 = new TopBottomEdge(topBottomEdgeTexture);
         ground2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT - ground1.getGroundTextureHeight());
+        background1 = new Background(backgroundTexture);
+        background2 = new Background(backgroundTexture);
+        background2.generateHazardAtPos(GAME_WIDTH, 0.0f);
 
         player = new Player(playerTexture, IS_ROTATING, IS_TESTING);
 
@@ -83,6 +85,8 @@ public class Maingame extends BasicGame {
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
+            background1.update();
+            background2.update();
 
         }
 
@@ -96,6 +100,8 @@ public class Maingame extends BasicGame {
     @Override
     public void render(Graphics g) {
         fitViewport.apply(g);
+        background1.render(g);
+        background2.render(g);
         player.render(g);
         ground1.render(g);
         ground2.render(g);
@@ -106,6 +112,21 @@ public class Maingame extends BasicGame {
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
     }
+
+//    void checkCollisions() {
+//        for (int i = 0; i < MAX_PILLARS; i++) {
+//            if (collisionRectanglesBottom[i] != null) {
+//                if (player.playerCollisionBox.intersects(collisionRectanglesBottom[i])) {
+//                    setDead();
+//                }
+//            }
+//            if (collisionRectanglesTop[i] != null) {
+//                if (player.playerCollisionBox.intersects(collisionRectanglesTop[i])) {
+//                    setDead();
+//                }
+//            }
+//        }
+//    }
 
 
 
