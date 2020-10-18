@@ -27,7 +27,6 @@ public class TopBottomEdge extends Hazards  {
     void render(Graphics g) {
         g.drawTexture(topBottomEdgeTexture.groundTexture, point.getX(),
                 GAME_HEIGHT - topBottomEdgeTexture.groundTexture.getHeight());
-        g.drawTexture(topBottomEdgeTexture.ceilingTexture, point.getX(), 0f);
     }
 
 

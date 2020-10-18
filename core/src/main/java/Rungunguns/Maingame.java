@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Maingame extends BasicGame {
 	public static final String GAME_IDENTIFIER = "Rungungun";
-	private Texture texture;
+
 
     public static float GRAVITY;
     public static float FLYING_SPEED;
@@ -59,7 +59,7 @@ public class Maingame extends BasicGame {
         topBottomEdgeTexture = new TopBottomEdgeTexture();
         ground1 = new TopBottomEdge(topBottomEdgeTexture);
         ground2 = new TopBottomEdge(topBottomEdgeTexture);
-        ground2.generateHazardAtPos(GAME_WIDTH, GAME_HEIGHT - ground1.getGroundTextureHeight());
+        ground2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT - ground2.getGroundTextureHeight());
 
 
         player = new Player(playerTexture, IS_ROTATING, IS_TESTING);
@@ -81,7 +81,7 @@ public class Maingame extends BasicGame {
                 inGame = true;
             }
 
-            player.update(inputHandler.spacePressed(), delta);
+            player.update(inputHandler.spacePressed(),ground2,ground1, delta);
             ground1.update();
             ground2.update();
 
