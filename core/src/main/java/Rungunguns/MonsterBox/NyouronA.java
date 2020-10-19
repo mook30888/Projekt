@@ -1,25 +1,23 @@
 package Rungunguns.MonsterBox;
 
+import Rungunguns.Monster;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 
-public class NyouronA {
-
-    private static final String NYOURON_TEXTURE_LOCATION = "Nyouron.png";
-    Texture nyouronTexture = new Texture(Gdx.files.internal(NYOURON_TEXTURE_LOCATION));
-
-    private static float NYOURON_SPEED = 20f;
-
-    float nyouronHeight;
-    float nyouronWidth;
-
-    private float collisionRectHeight;
-    private float collisionRectWidth = 10f;
-
-    CollisionBox collisionBox;
+public class NyouronA extends Monster {
 
 
+
+    public NyouronA(){
+        nyouronTexture= new Texture(Gdx.files.internal("Nyonron.png"));
+        nyouronHeight = nyouronTexture.getHeight();
+        nyouronWidth = nyouronTexture.getWidth();
+        collisionRectHeight = nyouronHeight;
+        collisionRectWidth = nyouronWidth;
+        NYOURON_SPEED = 20f;
+        hitpoint = 1;
+    }
 
 
 

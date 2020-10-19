@@ -38,6 +38,7 @@ public class Maingame extends BasicGame {
     TopBottomEdgeTexture topBottomEdgeTexture;
     Background background1, background2;
     BackgroundTexture backgroundTexture;
+    List<Monster>  monsters;
 
 
     CollisionBox[] collisionRectanglesBottom, collisionRectanglesTop;
@@ -68,7 +69,7 @@ public class Maingame extends BasicGame {
         background2.generateHazardAtPos(GAME_WIDTH, 0.0f);
 
         player = new Player(playerTexture, IS_TESTING);
-
+        monsters = new ArrayList<Monster>();
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
 
 
@@ -102,6 +103,7 @@ public class Maingame extends BasicGame {
             for (Bullet bul: bullets) {
                 bul.update();
             }
+
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();

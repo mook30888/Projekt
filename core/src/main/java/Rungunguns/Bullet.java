@@ -2,14 +2,13 @@ package Rungunguns;
 
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
-import org.mini2Dx.core.engine.geom.CollisionPoint;
 
-import static Rungunguns.Maingame.FLYING_SPEED;
 
 
 public class Bullet extends Hazards {
     BulletTexture bulletTexture;
     private static float BULLET_SPEED = 20f;
+
 
     float bulletHeight;
     float bulletWidth;
