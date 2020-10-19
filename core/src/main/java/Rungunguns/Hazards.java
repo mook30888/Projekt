@@ -5,9 +5,9 @@ import static Rungunguns.Maingame.FLYING_SPEED;
 
 public class Hazards {
 
-    CollisionPoint point = new CollisionPoint();
+    protected CollisionPoint point = new CollisionPoint();
 
-    void generateHazardAtPos(float xPos, float yPos) {
+    protected void generateHazardAtPos(float xPos, float yPos) {
         point.set(xPos, yPos);
     }
 

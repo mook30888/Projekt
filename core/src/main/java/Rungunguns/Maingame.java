@@ -1,5 +1,6 @@
 package Rungunguns;
 
+import Rungunguns.MonsterBox.NyouronA;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -40,7 +41,6 @@ public class Maingame extends BasicGame {
     BackgroundTexture backgroundTexture;
     List<Monster>  monsters;
 
-
     CollisionBox[] collisionRectanglesBottom, collisionRectanglesTop;
 
     int pillarIndexHead, pillarIndexTail;
@@ -71,7 +71,6 @@ public class Maingame extends BasicGame {
         player = new Player(playerTexture, IS_TESTING);
         monsters = new ArrayList<Monster>();
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
-
 
         pillarTiming = 60;
 
@@ -104,6 +103,16 @@ public class Maingame extends BasicGame {
                 bul.update();
             }
 
+            if(randomFloatMinMax(1,100) < 5 ){
+                NyouronA mon1 = new NyouronA();
+                monsters.add(mon1);
+                mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
+            }
+
+            for(Monster monster:monsters){
+                monster.update(ground1);
+            }
+
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
@@ -122,6 +131,7 @@ public class Maingame extends BasicGame {
     @Override
     public void render(Graphics g) {
 
+
         fitViewport.apply(g);
         background1.render(g);
         background2.render(g);
@@ -130,6 +140,9 @@ public class Maingame extends BasicGame {
         ground2.render(g);
         for (Bullet bul: bullets) {
             bul.render(g);
+        }
+        for(Monster monster : monsters){
+            monster.render(g);
         }
     }
 
