@@ -13,7 +13,7 @@ public class Player {
     private static float JUMP_ACCEL = -12.0f;
 
     private float playerTextureHeight, playerTextureWidth;
-    private boolean isRotating, isTesting;
+    private boolean isTesting, isShooting;
 
     private float playerY;
     private float playerYAccel = 0.0f;
@@ -23,13 +23,13 @@ public class Player {
 
     private PlayerTexture playerTexture;
 
-    public Player(PlayerTexture playerTexture, boolean isRotating, boolean isTesting) {
+    public Player(PlayerTexture playerTexture, boolean isTesting) {
+        this.isShooting = false;
         this.playerTexture = playerTexture;
         playerTextureHeight = playerTexture.playerSpriteSheet.getSprite(0).getHeight();
         playerTextureWidth = playerTexture.playerSpriteSheet.getSprite(0).getWidth();
         playerCollisionBox = generateCollisionRectAt(PLAYER_X, playerY);
         playerY = 300-playerTextureHeight/2 + 20 ;
-        this.isRotating = isRotating;
         this.isTesting = isTesting;
         playerTexture.playerAnimation.setLooping(true);
     }
@@ -57,10 +57,10 @@ public class Player {
 
 
     void update(boolean isJumping,float y , float delta) {
-
         playerCollisionBox.preUpdate();
 
-        playerTexture.playerAnimation.update(delta);
+        if(!isShooting) playerTexture.playerAnimation.update(delta);
+        else playerTexture.playershooting.update(delta);
 
 
         if (isJumping) {
@@ -71,25 +71,26 @@ public class Player {
             else playerYAccel = 0;
         }
 
-
+        if(playerTexture.playershooting.getCurrentFrameIndex() == 4) {
+            isShooting = false;
+            playerTexture.playershooting.restart();
+        }
         calcPlayerYPos();
     }
 
 
     void render(Graphics g) {
-        //TODO Give plane tilt when flying up or down.
-        if (getPlayerYAccel() > 0) {
-
-        } else if (getPlayerYAccel() > 0) {
-
-        }
-
-        playerTexture.playerAnimation.draw(g,PLAYER_X,getPlayerY());
+        if(!isShooting) playerTexture.playerAnimation.draw(g,PLAYER_X,getPlayerY());
+        else playerTexture.playershooting.draw(g,PLAYER_X,getPlayerY());
 
         if(isTesting){
             DrawPlayerCollisionBox(g);
         }
 
+    }
+
+    void shooting(){
+        isShooting = true;
     }
 
     void calcPlayerYPos() {
@@ -108,5 +109,7 @@ public class Player {
     float getPlayerTextureHeight() {
         return playerTextureHeight;
     }
+
+    float getPlayerTextureWidth() {return playerTextureWidth; }
 
 }

@@ -1,6 +1,5 @@
 package Rungunguns;
 
-import com.badlogic.gdx.Gdx;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -29,7 +28,7 @@ public class Maingame extends BasicGame {
     private boolean inGame, isDead;
     private static int playerScore, highScore;
 
-    private List<Bullet> bullet = new ArrayList<Bullet>();
+    private List<Bullet> bullets = new ArrayList<Bullet>();
 
     Viewport fitViewport;
     InputHandler inputHandler;
@@ -68,7 +67,7 @@ public class Maingame extends BasicGame {
         background2 = new Background(backgroundTexture);
         background2.generateHazardAtPos(GAME_WIDTH, 0.0f);
 
-        player = new Player(playerTexture, IS_ROTATING, IS_TESTING);
+        player = new Player(playerTexture, IS_TESTING);
 
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
 
@@ -87,18 +86,20 @@ public class Maingame extends BasicGame {
                 inGame = true;
             }
             if (inputHandler.zPressed()){
-                Bullet bul = new Bullet();
-                bullet.add(bul);
-                bul.generateHazardAtPos(Player.PLAYER_X, randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
+                player.shooting();
+                Bullet bullet = new Bullet();
+                bullets.add(bullet);
+                bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
 
             }
             if (inputHandler.xPressed()){
-                Bullet bul = new Bullet();
-                bullet.add(bul);
-                bul.generateHazardAtPos(Player.PLAYER_X, randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+                player.shooting();
+                Bullet bullet = new Bullet();
+                bullets.add(bullet);
+                bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
 
             }
-            for (Bullet bul:bullet) {
+            for (Bullet bul: bullets) {
                 bul.update();
             }
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
@@ -125,7 +126,7 @@ public class Maingame extends BasicGame {
         player.render(g);
         ground1.render(g);
         ground2.render(g);
-        for (Bullet bul:bullet) {
+        for (Bullet bul: bullets) {
             bul.render(g);
         }
     }
