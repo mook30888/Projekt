@@ -1,6 +1,7 @@
 package Rungunguns;
 
 import Rungunguns.MonsterBox.NyouronA;
+import Rungunguns.MonsterBox.Pharah;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -105,8 +106,11 @@ public class Maingame extends BasicGame {
 
             if(randomFloatMinMax(1,100) < 5 ){
                 NyouronA mon1 = new NyouronA();
+                Pharah mon2 = new Pharah();
                 monsters.add(mon1);
+                monsters.add(mon2);
                 mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
+                mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
             }
 
             for(Monster monster:monsters){
