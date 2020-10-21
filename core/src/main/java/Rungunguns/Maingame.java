@@ -99,11 +99,6 @@ public class Maingame extends BasicGame {
                 bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
 
             }
-            List<Bullet> toDel = new ArrayList<Bullet>();
-            for (Bullet bul: bullets) {
-                bul.isOutOfScreen(bullets,toDel);
-                bul.update();
-            }
 
             if(randomFloatMinMax(1,100) < 5 ){
                 NyouronA mon1 = new NyouronA();
@@ -114,12 +109,17 @@ public class Maingame extends BasicGame {
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
             }
 
+            List<Bullet> toDel = new ArrayList<Bullet>();
             List<Monster> toRemove = new ArrayList<Monster>();
             for(Monster monster:monsters){
                 monster.update(ground1);
                 if(monster.mongotshot(bullets,toDel)) {
                     toRemove.add(monster);
                 }
+            }
+            for (Bullet bul: bullets) {
+                bul.isOutOfScreen(bullets,toDel);
+                bul.update();
             }
             bullets.removeAll(toDel);
             monsters.removeAll(toRemove);

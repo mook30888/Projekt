@@ -62,10 +62,8 @@ public class Monster extends Hazards{
                 toDelete.add(bullet);
                 return true;
             }
-            else if(nyouroncollisionBox.getX()  <= 0)
-                return true;
         }
-        return false;
+        return nyouroncollisionBox.getX()  <= 0;
     }
 
     void calcMonsterYPos() {
