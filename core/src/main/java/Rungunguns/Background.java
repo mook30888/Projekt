@@ -14,7 +14,7 @@ public class Background extends Hazards{
     BackgroundTexture backgroundTexture;
 
 
-    private static float BACKGROUND_SPEED = 0.3f;
+    private static float BACKGROUND_SPEED = 0.5f;
     private float width;
 
     public Background(BackgroundTexture backgroundTexture) {

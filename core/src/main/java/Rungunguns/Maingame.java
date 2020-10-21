@@ -103,7 +103,7 @@ public class Maingame extends BasicGame {
             if(randomFloatMinMax(1,100) < 5 ){
                // NyouronA mon1 = new NyouronA();
                 Pharah mon2 = new Pharah();
-                //monsters.add(mon1);
+               // monsters.add(mon1);
                 monsters.add(mon2);
                 //mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);

@@ -9,6 +9,9 @@ import Rungunguns.Maingame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		DesktopMini2DxConfig config = new DesktopMini2DxConfig(Maingame.GAME_IDENTIFIER);
+		config.width = 680;
+		config.height = 280;
+		config.resizable = false;
 		config.vSyncEnabled = true;
 		new DesktopMini2DxGame(new Maingame(), config);
 	}

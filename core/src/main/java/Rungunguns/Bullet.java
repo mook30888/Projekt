@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Bullet extends Hazards {
     BulletTexture bulletTexture;
-    private static float BULLET_SPEED = 20f;
+    private static float BULLET_SPEED = 10f;
 
     float bulletHeight;
     float bulletWidth;
