@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.engine.geom.CollisionBox;
+import org.mini2Dx.core.graphics.Animation;
 import org.mini2Dx.core.graphics.Graphics;
+import org.mini2Dx.core.graphics.SpriteSheet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +16,11 @@ import static Rungunguns.Maingame.GRAVITY;
 
 public class Monster extends Hazards{
     protected boolean isRotating;
-    protected Texture nyouronTexture = new Texture("Nyouron.png");
+    protected Texture nyouronTexture;
+    protected  float frameDuration = 0.12f;
 
+    protected SpriteSheet monsterSpriteSheet;
+    protected Animation monstersAnimation;
 
     protected static float NYOURON_X = 100;
     protected static float JUMP_ACCEL = -12.0f;
@@ -39,8 +44,9 @@ public class Monster extends Hazards{
         return new CollisionBox(tempX, tempY, nyouronWidth, nyouronHeight);
     }
 
-    protected void update(TopBottomEdge ground1) {
+    protected void update(TopBottomEdge ground1,float delta) {
         point.preUpdate();
+        monstersAnimation.update(delta);
 
         if(nyouronY + nyouronHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight() )
             nyouronYAccel += GRAVITY;
@@ -51,8 +57,10 @@ public class Monster extends Hazards{
     }
 
     public void render(Graphics g){
-        g.drawTexture(nyouronTexture, point.getX(),point.getY());
+        //g.drawTexture(nyouronTexture, point.getX(),point.getY());
         DrawPlayerCollisionBox(g);
+        monstersAnimation.draw(g,nyouronX,nyouronY);
+        //g.drawTexture(monstersAnimation.getFrame(5).getTexture(),nyouronX,nyouronY);
     }
 
    public boolean mongotshot(List<Bullet> bullets, List<Bullet> toDelete){

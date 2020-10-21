@@ -29,6 +29,7 @@ public class PlayerTexture {
         playerAnimation.addFrame(playerSpriteSheet.getSprite(5),frameDuration);
         playerAnimation.addFrame(playerSpriteSheet.getSprite(6),frameDuration);
         playerAnimation.addFrame(playerSpriteSheet.getSprite(7),frameDuration);
+
         playershooting.addFrame(ShootingSpriteSheet.getSprite(0),frameDuration/3);
         playershooting.addFrame(ShootingSpriteSheet.getSprite(1),frameDuration/3);
         playershooting.addFrame(ShootingSpriteSheet.getSprite(2),frameDuration/3);

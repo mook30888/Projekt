@@ -101,18 +101,18 @@ public class Maingame extends BasicGame {
             }
 
             if(randomFloatMinMax(1,100) < 5 ){
-                NyouronA mon1 = new NyouronA();
+               // NyouronA mon1 = new NyouronA();
                 Pharah mon2 = new Pharah();
-                monsters.add(mon1);
+                //monsters.add(mon1);
                 monsters.add(mon2);
-                mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
+                //mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
             }
 
             List<Bullet> toDel = new ArrayList<Bullet>();
             List<Monster> toRemove = new ArrayList<Monster>();
             for(Monster monster:monsters){
-                monster.update(ground1);
+                monster.update(ground1,delta);
                 if(monster.mongotshot(bullets,toDel)) {
                     toRemove.add(monster);
                 }
