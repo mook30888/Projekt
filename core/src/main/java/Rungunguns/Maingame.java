@@ -114,7 +114,10 @@ public class Maingame extends BasicGame {
             for(Monster monster:monsters){
                 monster.update(ground1,delta);
                 if(monster.mongotshot(bullets,toDel)) {
-                    toRemove.add(monster);
+                    if(monster.hitpoint == 0){
+                        toRemove.add(monster);
+                    }
+
                 }
             }
             for (Bullet bul: bullets) {

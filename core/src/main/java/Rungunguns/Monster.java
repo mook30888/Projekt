@@ -67,6 +67,7 @@ public class Monster extends Hazards{
         for (Bullet bullet : bullets) {
 
             if(nyouroncollisionBox.intersects(bullet.collisionBox)) {
+                hitpoint-=1;
                 toDelete.add(bullet);
                 return true;
             }
