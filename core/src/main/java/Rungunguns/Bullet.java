@@ -26,7 +26,7 @@ public class Bullet extends Hazards {
         bulletHeight = bulletTexture.bullet.getHeight();
         bulletWidth = bulletTexture.bullet.getWidth();
         collisionRectHeight = bulletHeight;
-        collisionBox = generateCollisionRectAt(bulletX,bulletY);
+        collisionBox = generateCollisionRectAt(point.x,point.y);
     }
 
 
@@ -63,8 +63,6 @@ public class Bullet extends Hazards {
     }
 
     void calcbulletPos() {
-        //bulletX = point.x;
-        //point.y = bulletY;
         collisionBox.set(point.x,point.y);
     }
 
