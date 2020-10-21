@@ -58,7 +58,7 @@ public class Monster extends Hazards{
 
     public void render(Graphics g){
         //g.drawTexture(nyouronTexture, point.getX(),point.getY());
-        DrawPlayerCollisionBox(g);
+        //DrawPlayerCollisionBox(g); กรอบแดงแบบwallhack
         monstersAnimation.draw(g,nyouronX,nyouronY);
         //g.drawTexture(monstersAnimation.getFrame(5).getTexture(),nyouronX,nyouronY);
     }

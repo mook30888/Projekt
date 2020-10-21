@@ -36,4 +36,7 @@ public class Background extends Hazards{
     void render(Graphics g) {
         g.drawTexture(backgroundTexture.background, point.getX(), point.getY() + 15f);
     }
+
+    public float width() {return width;
+    }
 }

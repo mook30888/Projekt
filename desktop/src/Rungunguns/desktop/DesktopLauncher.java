@@ -11,7 +11,7 @@ public class DesktopLauncher {
 		DesktopMini2DxConfig config = new DesktopMini2DxConfig(Maingame.GAME_IDENTIFIER);
 		config.width = 680;
 		config.height = 280;
-		config.resizable = false;
+		config.resizable = true;
 		config.vSyncEnabled = true;
 		new DesktopMini2DxGame(new Maingame(), config);
 	}

@@ -64,8 +64,9 @@ public class Maingame extends BasicGame {
         ground2 = new TopBottomEdge(topBottomEdgeTexture);
         ground2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT - ground1.getGroundTextureHeight());
         background1 = new Background(backgroundTexture);
+        background1.generateHazardAtPos(0,0);
         background2 = new Background(backgroundTexture);
-        background2.generateHazardAtPos(GAME_WIDTH, 0.0f);
+        background2.generateHazardAtPos(background1.width()-5, 0.0f);
         bullet = new Bullet();
         player = new Player(playerTexture, IS_TESTING);
         monsters = new ArrayList<Monster>();
@@ -101,9 +102,9 @@ public class Maingame extends BasicGame {
             }
 
             if(randomFloatMinMax(1,100) < 5 ){
-               // NyouronA mon1 = new NyouronA();
+                //NyouronA mon1 = new NyouronA();
                 Pharah mon2 = new Pharah();
-               // monsters.add(mon1);
+                //monsters.add(mon1);
                 monsters.add(mon2);
                 //mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
@@ -156,8 +157,8 @@ public class Maingame extends BasicGame {
         background1.render(g);
         background2.render(g);
         player.render(g);
-        ground1.render(g);
-        ground2.render(g);
+        //ground1.render(g);
+       // ground2.render(g);
         for (Bullet bul: bullets) {
             bul.render(g);
         }
