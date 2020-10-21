@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static Rungunguns.Maingame.GAME_HEIGHT;
 import static Rungunguns.Maingame.GRAVITY;
 
@@ -50,6 +53,19 @@ public class Monster extends Hazards{
     public void render(Graphics g){
         g.drawTexture(nyouronTexture, point.getX(),point.getY());
         DrawPlayerCollisionBox(g);
+    }
+
+   public boolean mongotshot(List<Bullet> bullets, List<Bullet> toDelete){
+        for (Bullet bullet : bullets) {
+
+            if(nyouroncollisionBox.intersects(bullet.collisionBox)) {
+                toDelete.add(bullet);
+                return true;
+            }
+            else if(nyouroncollisionBox.getX()  <= 0)
+                return true;
+        }
+        return false;
     }
 
     void calcMonsterYPos() {

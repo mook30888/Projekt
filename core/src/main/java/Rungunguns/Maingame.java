@@ -35,6 +35,7 @@ public class Maingame extends BasicGame {
     Viewport fitViewport;
     InputHandler inputHandler;
     Player player;
+    Bullet bullet;
     PlayerTexture playerTexture;
     TopBottomEdge ground1, ground2;
     TopBottomEdgeTexture topBottomEdgeTexture;
@@ -42,9 +43,6 @@ public class Maingame extends BasicGame {
     BackgroundTexture backgroundTexture;
     List<Monster>  monsters;
 
-    CollisionBox[] collisionRectanglesBottom, collisionRectanglesTop;
-
-    int pillarIndexHead, pillarIndexTail;
     int pillarTiming;
 
 
@@ -68,10 +66,11 @@ public class Maingame extends BasicGame {
         background1 = new Background(backgroundTexture);
         background2 = new Background(backgroundTexture);
         background2.generateHazardAtPos(GAME_WIDTH, 0.0f);
-
+        bullet = new Bullet();
         player = new Player(playerTexture, IS_TESTING);
         monsters = new ArrayList<Monster>();
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
+
 
         pillarTiming = 60;
 
@@ -100,7 +99,9 @@ public class Maingame extends BasicGame {
                 bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
 
             }
+            List<Bullet> toDel = new ArrayList<Bullet>();
             for (Bullet bul: bullets) {
+                bul.isOutOfScreen(bullets,toDel);
                 bul.update();
             }
 
@@ -113,15 +114,23 @@ public class Maingame extends BasicGame {
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
             }
 
+            List<Monster> toRemove = new ArrayList<Monster>();
             for(Monster monster:monsters){
                 monster.update(ground1);
+                if(monster.mongotshot(bullets,toDel)) {
+                    toRemove.add(monster);
+                }
             }
+            bullets.removeAll(toDel);
+            monsters.removeAll(toRemove);
 
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
             background1.update();
             background2.update();
+          //  mongotshot();
+
 
         }
 
@@ -162,20 +171,8 @@ public class Maingame extends BasicGame {
         return leftLimit + new Random().nextFloat() * (rightLimit - leftLimit);
     }
 
-//    void checkCollisions() {
-//        for (int i = 0; i < MAX_PILLARS; i++) {
-//            if (collisionRectanglesBottom[i] != null) {
-//                if (player.playerCollisionBox.intersects(collisionRectanglesBottom[i])) {
-//                    setDead();
-//                }
-//            }
-//            if (collisionRectanglesTop[i] != null) {
-//                if (player.playerCollisionBox.intersects(collisionRectanglesTop[i])) {
-//                    setDead();
-//                }
-//            }
-//        }
-//    }
+
+
 
 
 

@@ -10,7 +10,7 @@ public class Pharah extends Monster {
         nyouronTexture= new Texture("Monsters/Pharah/Pharah.png");
         nyouronHeight = nyouronTexture.getHeight();
         nyouronWidth = nyouronTexture.getWidth();
-        nyouroncollisionBox = generateCollisionRectAt(nyouronX,nyouronY);
+        nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);
         collisionRectHeight = nyouronHeight;
         collisionRectWidth = nyouronWidth;
         NYOURON_SPEED = 3f;

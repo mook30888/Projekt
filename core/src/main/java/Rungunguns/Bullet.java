@@ -4,12 +4,12 @@ import com.badlogic.gdx.graphics.Color;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
 
+import java.util.List;
 
 
 public class Bullet extends Hazards {
     BulletTexture bulletTexture;
     private static float BULLET_SPEED = 20f;
-    protected float bulletY, bulletX;
 
     float bulletHeight;
     float bulletWidth;
@@ -36,6 +36,17 @@ public class Bullet extends Hazards {
         return new CollisionBox(tempX, tempY, bulletWidth, bulletHeight);
     }
 
+    public boolean isOutOfScreen(List<Bullet> bullets, List<Bullet> toDelete) {
+        for (Bullet bullet : bullets) {
+
+            if (collisionBox.getX() > 500) {
+                toDelete.add(bullet);
+                return true;
+            }
+
+        }
+        return false;
+    }
 
     @Override
     public void update(){
