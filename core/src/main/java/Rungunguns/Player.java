@@ -4,6 +4,9 @@ package Rungunguns;
 import com.badlogic.gdx.graphics.Color;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
+
+import java.util.List;
+
 import static Rungunguns.Maingame.GRAVITY;
 
 
@@ -111,5 +114,15 @@ public class Player {
     }
 
     float getPlayerTextureWidth() {return playerTextureWidth; }
+
+    boolean playerGotHit(List<Monster> monsters){
+        for (Monster monster : monsters) {
+
+            if(monster.nyouroncollisionBox.intersects(playerCollisionBox)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

@@ -119,6 +119,9 @@ public class Maingame extends BasicGame {
                     }
 
                 }
+                if(player.playerGotHit(monsters)){
+                    setDead();
+                }
             }
             for (Bullet bul: bullets) {
                 bul.isOutOfScreen(bullets,toDel);
@@ -127,12 +130,13 @@ public class Maingame extends BasicGame {
             bullets.removeAll(toDel);
             monsters.removeAll(toRemove);
 
+
+
             player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
             background1.update();
             background2.update();
-          //  mongotshot();
 
 
         }
@@ -163,7 +167,7 @@ public class Maingame extends BasicGame {
     }
 
     void setDead() {
-        isDead = false;   //อมตะ
+        isDead = true;   //อมตะ
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
     }
