@@ -1,6 +1,7 @@
 package Rungunguns;
 
 
+import Rungunguns.TextureBox.PlayerTexture;
 import com.badlogic.gdx.graphics.Color;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
@@ -29,12 +30,12 @@ public class Player {
     public Player(PlayerTexture playerTexture, boolean isTesting) {
         this.isShooting = false;
         this.playerTexture = playerTexture;
-        playerTextureHeight = playerTexture.playerSpriteSheet.getSprite(0).getHeight();
-        playerTextureWidth = playerTexture.playerSpriteSheet.getSprite(0).getWidth();
+        playerTextureHeight = playerTexture.playerSpriteSheet().getSprite(0).getHeight();
+        playerTextureWidth = playerTexture.playerSpriteSheet().getSprite(0).getWidth();
         playerCollisionBox = generateCollisionRectAt(PLAYER_X, playerY);
         playerY = 300-playerTextureHeight/2 + 20 ;
         this.isTesting = isTesting;
-        playerTexture.playerAnimation.setLooping(true);
+        playerTexture.playerAnimation().setLooping(true);
     }
 
     void settingPlayerJumping() {
@@ -62,8 +63,8 @@ public class Player {
     void update(boolean isJumping,float y , float delta) {
         playerCollisionBox.preUpdate();
 
-        if(!isShooting) playerTexture.playerAnimation.update(delta);
-        else playerTexture.playershooting.update(delta);
+        if(!isShooting) playerTexture.playerAnimation().update(delta);
+        else playerTexture.playershooting().update(delta);
 
 
         if (isJumping) {
@@ -74,17 +75,17 @@ public class Player {
             else playerYAccel = 0;
         }
 
-        if(playerTexture.playershooting.getCurrentFrameIndex() == 4) {
+        if(playerTexture.playershooting().getCurrentFrameIndex() == 4) {
             isShooting = false;
-            playerTexture.playershooting.restart();
+            playerTexture.playershooting().restart();
         }
         calcPlayerYPos();
     }
 
 
     void render(Graphics g) {
-        if(!isShooting) playerTexture.playerAnimation.draw(g,PLAYER_X,getPlayerY());
-        else playerTexture.playershooting.draw(g,PLAYER_X,getPlayerY());
+        if(!isShooting) playerTexture.playerAnimation().draw(g,PLAYER_X,getPlayerY());
+        else playerTexture.playershooting().draw(g,PLAYER_X,getPlayerY());
 
         if(isTesting){
             DrawPlayerCollisionBox(g);

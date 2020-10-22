@@ -1,10 +1,12 @@
-package Rungunguns;
+package Rungunguns.TextureBox;
 
 
 
 import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.graphics.Animation;
 import org.mini2Dx.core.graphics.SpriteSheet;
+
+import java.awt.*;
 
 
 public class PlayerTexture {
@@ -13,12 +15,12 @@ public class PlayerTexture {
 
     private float frameDuration = 0.12f;
 
-    Texture spriteTexture = new Texture(PLAYER_SPRITE_SHEET_LOCATION);
-    Texture shootingTexture = new Texture(SHOOTING_SPRITE_SHEET_LOCATION);
-    SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,67,70);
-    SpriteSheet ShootingSpriteSheet = new SpriteSheet(shootingTexture,67,70);
-    Animation playerAnimation = new Animation();
-    Animation playershooting = new Animation();
+    protected Texture spriteTexture = new Texture(PLAYER_SPRITE_SHEET_LOCATION);
+    protected Texture shootingTexture = new Texture(SHOOTING_SPRITE_SHEET_LOCATION);
+    protected SpriteSheet playerSpriteSheet = new SpriteSheet(spriteTexture,67,70);
+    protected SpriteSheet ShootingSpriteSheet = new SpriteSheet(shootingTexture,67,70);
+    protected Animation playerAnimation = new Animation();
+    protected Animation playershooting = new Animation();
 
     public PlayerTexture(){
         playerAnimation.addFrame(playerSpriteSheet.getSprite(0),frameDuration);
@@ -36,6 +38,18 @@ public class PlayerTexture {
         playershooting.addFrame(ShootingSpriteSheet.getSprite(3),frameDuration/3);
         playershooting.addFrame(ShootingSpriteSheet.getSprite(4),frameDuration/3);
 
+    }
+
+    public SpriteSheet playerSpriteSheet() {
+        return playerSpriteSheet;
+    }
+
+    public Animation playerAnimation() {
+        return playerAnimation;
+    }
+
+    public Animation playershooting() {
+        return playershooting;
     }
 }
 

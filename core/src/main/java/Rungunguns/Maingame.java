@@ -1,8 +1,7 @@
 package Rungunguns;
 
-import Rungunguns.MonsterBox.NyouronA;
 import Rungunguns.MonsterBox.Pharah;
-import org.mini2Dx.core.engine.geom.CollisionBox;
+import Rungunguns.TextureBox.PlayerTexture;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
