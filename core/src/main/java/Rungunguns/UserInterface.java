@@ -1,5 +1,6 @@
 package Rungunguns;
 
+import Rungunguns.TextureBox.UserInterfaceTexture;
 import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.graphics.Graphics;
 
@@ -22,16 +23,16 @@ public class UserInterface {
     private int messageY = (int)(GAME_HEIGHT - 100);
 
     public UserInterface(UserInterfaceTexture userInterfaceTexture){
-        numTexture[0] = userInterfaceTexture.numZeroTexture;
-        numTexture[1] = userInterfaceTexture.numOneTexture;
-        numTexture[2] = userInterfaceTexture.numTwoTexture;
-        numTexture[3] = userInterfaceTexture.numThreeTexture;
-        numTexture[4] = userInterfaceTexture.numFourTexture;
-        numTexture[5] = userInterfaceTexture.numFiveTexture;
-        numTexture[6] = userInterfaceTexture.numSixTexture;
-        numTexture[7] = userInterfaceTexture.numSevenTexture;
-        numTexture[8] = userInterfaceTexture.numEightTexture;
-        numTexture[9] = userInterfaceTexture.numNineTexture;
+        numTexture[0] = userInterfaceTexture.numZeroTexture();
+        numTexture[1] = userInterfaceTexture.numOneTexture();
+        numTexture[2] = userInterfaceTexture.numTwoTexture();
+        numTexture[3] = userInterfaceTexture.numThreeTexture();
+        numTexture[4] = userInterfaceTexture.numFourTexture();
+        numTexture[5] = userInterfaceTexture.numFiveTexture();
+        numTexture[6] = userInterfaceTexture.numSixTexture();
+        numTexture[7] = userInterfaceTexture.numSevenTexture();
+        numTexture[8] = userInterfaceTexture.numEightTexture();
+        numTexture[9] = userInterfaceTexture.numNineTexture();
     }
 
     private Integer[] intToIntArrayByDigits(int integer){

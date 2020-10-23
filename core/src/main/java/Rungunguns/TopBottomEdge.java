@@ -1,5 +1,6 @@
 package Rungunguns;
 
+import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import org.mini2Dx.core.graphics.Graphics;
 
 import static Rungunguns.Maingame.GAME_WIDTH;
@@ -13,7 +14,7 @@ public class TopBottomEdge extends Hazards  {
 
     public TopBottomEdge(TopBottomEdgeTexture topBottomEdgeModel) {
         this.topBottomEdgeTexture = topBottomEdgeModel;
-        groundTextureHeight = topBottomEdgeModel.groundTexture.getHeight();
+        groundTextureHeight = topBottomEdgeModel.groundTexture().getHeight();
     }
 
     @Override
@@ -25,8 +26,8 @@ public class TopBottomEdge extends Hazards  {
     }
 
     void render(Graphics g) {
-        g.drawTexture(topBottomEdgeTexture.groundTexture, point.getX(),
-                GAME_HEIGHT - topBottomEdgeTexture.groundTexture.getHeight());
+        g.drawTexture(topBottomEdgeTexture.groundTexture(), point.getX(),
+                GAME_HEIGHT - topBottomEdgeTexture.groundTexture().getHeight());
     }
 
 

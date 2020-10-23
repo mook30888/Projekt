@@ -1,5 +1,6 @@
 package Rungunguns;
 
+import Rungunguns.TextureBox.BulletTexture;
 import com.badlogic.gdx.graphics.Color;
 import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Graphics;
@@ -23,8 +24,8 @@ public class Bullet extends Hazards {
 
     public Bullet() {
         this.bulletTexture = new BulletTexture();
-        bulletHeight = bulletTexture.bullet.getHeight();
-        bulletWidth = bulletTexture.bullet.getWidth();
+        bulletHeight = bulletTexture.bullet().getHeight();
+        bulletWidth = bulletTexture.bullet().getWidth();
         collisionRectHeight = bulletHeight;
         collisionBox = generateCollisionRectAt(point.x,point.y);
     }

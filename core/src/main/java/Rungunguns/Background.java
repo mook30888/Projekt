@@ -2,6 +2,7 @@ package Rungunguns;
 
 
 
+import Rungunguns.TextureBox.BackgroundTexture;
 import org.mini2Dx.core.graphics.Graphics;
 
 import static Rungunguns.Maingame.FLYING_SPEED;
@@ -19,7 +20,7 @@ public class Background extends Hazards{
 
     public Background(BackgroundTexture backgroundTexture) {
         this.backgroundTexture = backgroundTexture;
-        this.width = backgroundTexture.background.getWidth();
+        this.width = backgroundTexture.background().getWidth();
     }
 
     @Override
@@ -34,7 +35,7 @@ public class Background extends Hazards{
     }
 
     void render(Graphics g) {
-        g.drawTexture(backgroundTexture.background, point.getX(), point.getY() + 15f);
+        g.drawTexture(backgroundTexture.background(), point.getX(), point.getY() + 15f);
     }
 
     public float width() {return width;

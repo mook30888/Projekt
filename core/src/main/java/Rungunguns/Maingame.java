@@ -1,7 +1,9 @@
 package Rungunguns;
 
 import Rungunguns.MonsterBox.Pharah;
+import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
+import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;

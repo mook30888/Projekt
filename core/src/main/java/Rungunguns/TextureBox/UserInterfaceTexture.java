@@ -1,4 +1,4 @@
-package Rungunguns;
+package Rungunguns.TextureBox;
 
 import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.Mdx;
@@ -33,4 +33,43 @@ public class UserInterfaceTexture {
     Texture resultTexture = new Texture(RESULT_TEXT_LOCATION);
     Texture scoreTexture = new Texture(SCORE_TEXT_LOCATION);
 
+    public Texture numZeroTexture() {
+        return numZeroTexture;
+    }
+
+    public Texture numOneTexture() {
+        return numOneTexture;
+    }
+
+    public Texture numTwoTexture() {
+        return numTwoTexture;
+    }
+
+    public Texture numThreeTexture() {
+        return numThreeTexture;
+    }
+
+    public Texture numFourTexture() {
+        return numFourTexture;
+    }
+
+    public Texture numFiveTexture() {
+        return numFiveTexture;
+    }
+
+    public Texture numSixTexture() {
+        return numSixTexture;
+    }
+
+    public Texture numSevenTexture() {
+        return numSevenTexture;
+    }
+
+    public Texture numEightTexture() {
+        return numEightTexture;
+    }
+
+    public Texture numNineTexture() {
+        return numNineTexture;
+    }
 }
