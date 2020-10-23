@@ -86,15 +86,15 @@ public class UserInterface {
         g.drawTexture(resultText, GAME_WIDTH/2 - resultText.getWidth()/2 , messageY-300);
     }
 
-    void displayScoreMessage(Graphics g){
-        g.drawTexture(scoreText,GAME_WIDTH/2 - scoreText.getWidth()/2 , messageY);
+        void displayScoreMessage(Graphics g){
+            g.drawTexture(scoreText,GAME_WIDTH/2 - scoreText.getWidth()/2 , messageY);
+        }
+
+        void displayZX(Graphics g){
+            g.drawTexture(zxText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)-10);
     }
 
-    void displayZX(Graphics g){
-        g.drawTexture(zxText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)-10);
-    }
-
-    void dislaySpace(Graphics g){ g.drawTexture(spaceText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)+150);}
+    void displaySpace(Graphics g){ g.drawTexture(spaceText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)+150);}
 
 
 

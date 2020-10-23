@@ -182,7 +182,7 @@ public class Maingame extends BasicGame {
             //userInterface.displayHighscore(g,highScore);
             userInterface.displayStartMessage(g);
             userInterface.displayZX(g);
-            userInterface.dislaySpace(g);
+            userInterface.displaySpace(g);
 
         }
         if (isDead){
