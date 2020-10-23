@@ -23,7 +23,7 @@ public class Maingame extends BasicGame {
     public static final float GAME_HEIGHT = 500;
 
     //These variables change how it feels to play the game.
-    private static float GAME_GRAVITY = 0.6f;
+    private static float GAME_GRAVITY = 0.6f, scorethisgame=0;
     private static float GAME_FLYING_SPEED = 8f;
     private static boolean IS_ROTATING = false;
     private static boolean IS_TESTING = false;
@@ -118,6 +118,7 @@ public class Maingame extends BasicGame {
                 if(monster.mongotshot(bullets,toDel)) {
                     if(monster.hitpoint == 0){
                         toRemove.add(monster);
+                        scorethisgame +=1;
                     }
 
                 }
