@@ -9,10 +9,10 @@ public class Pharah extends Monster {
 
 
     public Pharah(){
-        nyouronTexture= new Texture("Monsters/Pharah/Pharah.png");
+        nyouronTexture= new Texture("Monsters/Pharah/Pharah2.png");
         NYOURON_SPEED = 3f;
-        hitpoint = 5;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,67,70);
+        hitpoint = 1;
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,100,104);
         monstersAnimation = new Animation();
         for (int i = 0;i < 15;i++) {
             if (i < 10 || i > 12) {

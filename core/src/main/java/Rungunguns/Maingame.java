@@ -182,6 +182,7 @@ public class Maingame extends BasicGame {
             //userInterface.displayHighscore(g,highScore);
             userInterface.displayStartMessage(g);
             userInterface.displayZX(g);
+            userInterface.dislaySpace(g);
 
         }
         if (isDead){
@@ -193,7 +194,7 @@ public class Maingame extends BasicGame {
     }
 
     void setDead() {
-        isDead = false;   //อมตะ
+        isDead = true;   //อมตะ
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
     }
