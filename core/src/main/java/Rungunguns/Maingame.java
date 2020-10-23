@@ -179,8 +179,9 @@ public class Maingame extends BasicGame {
         userInterface.displayScore(g,scorethisgame);
 
         if(!inGame){
-            userInterface.displayHighscore(g,highScore);
+            //userInterface.displayHighscore(g,highScore);
             userInterface.displayStartMessage(g);
+            userInterface.displayZX(g);
 
         }
         if (isDead){

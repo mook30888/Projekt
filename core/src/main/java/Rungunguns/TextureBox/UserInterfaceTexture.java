@@ -18,6 +18,7 @@ public class UserInterfaceTexture {
 
     private static final String RESULT_TEXT_LOCATION = "TextUI/result.png";
     private static final String SCORE_TEXT_LOCATION = "TextUI/score.png";
+    private static final String ZX_TEXT_LOCATION = "TextUI/zx.png";
 
     Texture numZeroTexture = new Texture(NUMBER_0_LOCATION);
     Texture numOneTexture = new Texture(NUMBER_1_LOCATION);
@@ -32,6 +33,7 @@ public class UserInterfaceTexture {
 
     Texture resultTexture = new Texture(RESULT_TEXT_LOCATION);
     Texture scoreTexture = new Texture(SCORE_TEXT_LOCATION);
+    Texture zxTexture = new Texture(ZX_TEXT_LOCATION);
 
     public Texture numZeroTexture() {
         return numZeroTexture;

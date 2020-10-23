@@ -12,7 +12,7 @@ import static Rungunguns.Maingame.GAME_WIDTH;
 
 public class UserInterface {
     Texture[] numTexture = new Texture[10];
-    Texture startText,resultText,highscoreText,scoreText;
+    Texture startText,resultText,highscoreText,scoreText,zxText;
 
     List<Integer> Score = new LinkedList<Integer>();
 
@@ -28,6 +28,7 @@ public class UserInterface {
         startText = new Texture("TextUI/PressSpace.png");
         resultText = new Texture("TextUI/result.png");
         scoreText = new Texture("TextUI/score.png");
+        zxText = new Texture("TextUI/zx.png");
         numTexture[0] = userInterfaceTexture.numZeroTexture();
         numTexture[1] = userInterfaceTexture.numOneTexture();
         numTexture[2] = userInterfaceTexture.numTwoTexture();
@@ -86,6 +87,10 @@ public class UserInterface {
 
     void displayScoreMessage(Graphics g){
         g.drawTexture(scoreText,GAME_WIDTH/2 - scoreText.getWidth()/2 , messageY);
+    }
+
+    void displayZX(Graphics g){
+        g.drawTexture(zxText,GAME_WIDTH-100 - scoreText.getWidth()/2 , messageY);
     }
 
 
