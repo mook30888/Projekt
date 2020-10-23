@@ -187,7 +187,8 @@ public class Maingame extends BasicGame {
         }
         if (isDead){
             userInterface.displayResultMessage(g);
-            userInterface.displayScore(g,scorethisgame);
+            userInterface.displayHighscore(g,scorethisgame);
+            //userInterface.display
         }
 
 
