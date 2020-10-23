@@ -19,7 +19,7 @@ public class UserInterface {
 
     Integer[] digits;
 
-    private int numWidth = 53;
+    private float numWidth = 70;
     private int highscoreY = 75;
     private int messageY = (int)(GAME_HEIGHT - 100);
 
@@ -56,7 +56,7 @@ public class UserInterface {
     void displayScore(Graphics g,int tempScore){
         digits = intToIntArrayByDigits(tempScore);
         for(int i = 0; i<digits.length; i++){
-            g.drawTexture(numTexture[digits[i]],i*numWidth,0);
+            g.drawTexture(numTexture[digits[i]],i*numWidth,10);
         }
     }
 
@@ -90,7 +90,7 @@ public class UserInterface {
     }
 
     void displayZX(Graphics g){
-        g.drawTexture(zxText,GAME_WIDTH-100 - scoreText.getWidth()/2 , messageY);
+        g.drawTexture(zxText,(GAME_WIDTH/2)-100 - scoreText.getWidth()/2 , messageY);
     }
 
 

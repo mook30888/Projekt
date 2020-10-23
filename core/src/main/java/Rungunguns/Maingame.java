@@ -193,7 +193,7 @@ public class Maingame extends BasicGame {
     }
 
     void setDead() {
-        isDead = true;   //อมตะ
+        isDead = false;   //อมตะ
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
     }
