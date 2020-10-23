@@ -5,19 +5,19 @@ import org.mini2Dx.core.Mdx;
 
 
 public class UserInterfaceTexture {
-    private static final String NUMBER_0_LOCATION = "0.png";
-    private static final String NUMBER_1_LOCATION = "1.png";
-    private static final String NUMBER_2_LOCATION = "2.png";
-    private static final String NUMBER_3_LOCATION = "3.png";
-    private static final String NUMBER_4_LOCATION = "4.png";
-    private static final String NUMBER_5_LOCATION = "5.png";
-    private static final String NUMBER_6_LOCATION = "6.png";
-    private static final String NUMBER_7_LOCATION = "7.png";
-    private static final String NUMBER_8_LOCATION = "8.png";
-    private static final String NUMBER_9_LOCATION = "9.png";
+    private static final String NUMBER_0_LOCATION = "TextUI/0.png";
+    private static final String NUMBER_1_LOCATION = "TextUI/1.png";
+    private static final String NUMBER_2_LOCATION = "TextUI/2.png";
+    private static final String NUMBER_3_LOCATION = "TextUI/3.png";
+    private static final String NUMBER_4_LOCATION = "TextUI/4.png";
+    private static final String NUMBER_5_LOCATION = "TextUI/5.png";
+    private static final String NUMBER_6_LOCATION = "TextUI/6.png";
+    private static final String NUMBER_7_LOCATION = "TextUI/7.png";
+    private static final String NUMBER_8_LOCATION = "TextUI/8.png";
+    private static final String NUMBER_9_LOCATION = "TextUI/9.png";
 
-    private static final String RESULT_TEXT_LOCATION = "result.png";
-    private static final String SCORE_TEXT_LOCATION = "score.png";
+    private static final String RESULT_TEXT_LOCATION = "TextUI/result.png";
+    private static final String SCORE_TEXT_LOCATION = "TextUI/score.png";
 
     Texture numZeroTexture = new Texture(NUMBER_0_LOCATION);
     Texture numOneTexture = new Texture(NUMBER_1_LOCATION);

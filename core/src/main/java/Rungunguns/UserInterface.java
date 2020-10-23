@@ -16,6 +16,7 @@ public class UserInterface {
 
     List<Integer> Score = new LinkedList<Integer>();
 
+
     Integer[] digits;
 
     private int numWidth = 53;
@@ -23,6 +24,10 @@ public class UserInterface {
     private int messageY = (int)(GAME_HEIGHT - 100);
 
     public UserInterface(UserInterfaceTexture userInterfaceTexture){
+        highscoreText = new Texture("TextUI/0.png" );
+        startText = new Texture("TextUI/PressSpace.png");
+        resultText = new Texture("TextUI/result.png");
+        scoreText = new Texture("TextUI/score.png");
         numTexture[0] = userInterfaceTexture.numZeroTexture();
         numTexture[1] = userInterfaceTexture.numOneTexture();
         numTexture[2] = userInterfaceTexture.numTwoTexture();
@@ -63,8 +68,8 @@ public class UserInterface {
         if(digits.length > 0) {
             for (int i = 0; i < digits.length; i++) {
                 g.drawTexture(numTexture[digits[i]],
-                        (GAME_WIDTH / 2) - (digits.length * numWidth / 2) + (i * numWidth),
-                        highscoreY + 60);
+                        (GAME_WIDTH / 2) - (digits.length * numWidth / 2) + (i * numWidth)+1,
+                        highscoreY + 30);
             }
         } else {
             g.drawTexture(numTexture[0],GAME_WIDTH/2 - numWidth/2, highscoreY + 60);
@@ -76,7 +81,7 @@ public class UserInterface {
     }
 
     void displayResultMessage(Graphics g){
-        g.drawTexture(resultText, GAME_WIDTH/2 - resultText.getWidth()/2 , messageY);
+        g.drawTexture(resultText, GAME_WIDTH/2 - resultText.getWidth()/2 , messageY-300);
     }
 
     void displayScoreMessage(Graphics g){

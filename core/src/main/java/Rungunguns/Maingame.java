@@ -4,6 +4,7 @@ import Rungunguns.MonsterBox.Pharah;
 import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
+import Rungunguns.TextureBox.UserInterfaceTexture;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
@@ -23,7 +24,8 @@ public class Maingame extends BasicGame {
     public static final float GAME_HEIGHT = 500;
 
     //These variables change how it feels to play the game.
-    private static float GAME_GRAVITY = 0.6f, scorethisgame=0;
+    private static float GAME_GRAVITY = 0.6f;
+    private static int scorethisgame = 0;
     private static float GAME_FLYING_SPEED = 8f;
     private static boolean IS_ROTATING = false;
     private static boolean IS_TESTING = false;
@@ -43,6 +45,9 @@ public class Maingame extends BasicGame {
     Background background1, background2;
     BackgroundTexture backgroundTexture;
     List<Monster>  monsters;
+    UserInterface userInterface;
+    UserInterfaceTexture userInterfaceTexture;
+
 
     int pillarTiming;
 
@@ -72,6 +77,8 @@ public class Maingame extends BasicGame {
         player = new Player(playerTexture, IS_TESTING);
         monsters = new ArrayList<Monster>();
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
+        userInterface = new UserInterface(new UserInterfaceTexture());
+
 
 
         pillarTiming = 60;
@@ -118,12 +125,13 @@ public class Maingame extends BasicGame {
                 if(monster.mongotshot(bullets,toDel)) {
                     if(monster.hitpoint == 0){
                         toRemove.add(monster);
-                        scorethisgame +=1;
+                        scorethisgame +=1; //mons ตายเพิ่ม 1
                     }
 
                 }
                 if(player.playerGotHit(monsters)){
                     setDead();
+
                 }
             }
             for (Bullet bul: bullets) {
@@ -167,6 +175,20 @@ public class Maingame extends BasicGame {
         for(Monster monster : monsters){
             monster.render(g);
         }
+
+        userInterface.displayScore(g,scorethisgame);
+
+        if(!inGame){
+            userInterface.displayHighscore(g,highScore);
+            userInterface.displayStartMessage(g);
+
+        }
+        if (isDead){
+            userInterface.displayResultMessage(g);
+            userInterface.displayScore(g,scorethisgame);
+        }
+
+
     }
 
     void setDead() {
@@ -181,7 +203,7 @@ public class Maingame extends BasicGame {
         return leftLimit + new Random().nextFloat() * (rightLimit - leftLimit);
     }
 
-
+    public static int getScore(){return scorethisgame;}  //เผื่อเรียก
 
 
 
