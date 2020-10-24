@@ -31,7 +31,7 @@ public class TopBottomEdge extends Hazards  {
     }
 
 
-    float getGroundTextureHeight() {
+    public float getGroundTextureHeight() {
         return groundTextureHeight;
     }
 

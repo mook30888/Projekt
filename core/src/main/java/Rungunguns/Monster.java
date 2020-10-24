@@ -75,7 +75,7 @@ public class Monster extends Hazards{
         return nyouroncollisionBox.getX()  <= 0;
     }
 
-    void calcMonsterYPos() {
+    protected void calcMonsterYPos() {
         nyouronX = point.x;
         nyouronY += nyouronYAccel;
         point.y = nyouronY;
