@@ -130,12 +130,12 @@ public class Maingame extends BasicGame {
                     if(monster.hitpoint == 0){
                         toRemove.add(monster);
                         scorethisgame +=1; //mons ตายเพิ่ม 1
+
                     }
 
                 }
                 if(player.playerGotHit(monsters)){
                     setDead();
-
                 }
             }
             for (Bullet bul: bullets) {
