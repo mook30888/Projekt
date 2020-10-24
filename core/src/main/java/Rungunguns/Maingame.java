@@ -50,7 +50,7 @@ public class Maingame extends BasicGame {
     UserInterfaceTexture userInterfaceTexture;
 
 
-    int pillarTiming;
+    float spawnrate;
 
 
 
@@ -62,6 +62,7 @@ public class Maingame extends BasicGame {
         isDead = false;
         playerScore = 0;
         inputHandler = new InputHandler();
+        spawnrate = 10;
 
         playerTexture = new PlayerTexture();
         backgroundTexture = new BackgroundTexture();
@@ -81,8 +82,6 @@ public class Maingame extends BasicGame {
         userInterface = new UserInterface(new UserInterfaceTexture());
 
 
-
-        pillarTiming = 60;
 
     }
     
@@ -110,7 +109,7 @@ public class Maingame extends BasicGame {
 
             }
 
-            if(randomFloatMinMax(1,100) < 5 ){
+            /*if(randomFloatMinMax(1,100) < 5 ){
                 //NyouronA mon1 = new NyouronA();
                 Pharah mon2 = new Pharah();
                 Mercy mon3= new Mercy();
@@ -120,7 +119,12 @@ public class Maingame extends BasicGame {
                 //mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
                 mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
                 mon3.generateHazardAtPos(GAME_WIDTH,randomFloatMinMax(GAME_HEIGHT-400,GAME_HEIGHT-300));
-            }
+            }*/
+            Pharah mon2 = new Pharah();
+            Mercy mon3= new Mercy();
+            spawnmonster(mon2,spawnrate);
+            spawnmonster(mon3,randomFloatMinMax(spawnrate-50,spawnrate));
+
 
             List<Bullet> toDel = new ArrayList<Bullet>();
             List<Monster> toRemove = new ArrayList<Monster>();
@@ -130,6 +134,9 @@ public class Maingame extends BasicGame {
                     if(monster.hitpoint == 0){
                         toRemove.add(monster);
                         scorethisgame +=1; //mons ตายเพิ่ม 1
+                        if(scorethisgame%10==0){
+                            spawnrate+=5;
+                        }
 
                     }
 
@@ -211,6 +218,14 @@ public class Maingame extends BasicGame {
     }
 
     public static int getScore(){return scorethisgame;}  //เผื่อเรียก
+
+    public void spawnmonster(Monster a,float spawnrate){
+        if(randomFloatMinMax(1,1000) < spawnrate ){
+            monsters.add(a);
+            a.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
+        }
+
+    }
 
 
 

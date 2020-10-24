@@ -15,6 +15,7 @@ import static Rungunguns.Maingame.GAME_HEIGHT;
 import static Rungunguns.Maingame.GRAVITY;
 
 public class Monster extends Hazards{
+    public float spawnrate;
     protected boolean isRotating;
     protected Texture nyouronTexture;
     protected  float frameDuration = 0.12f;

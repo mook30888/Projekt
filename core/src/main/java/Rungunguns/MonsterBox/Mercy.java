@@ -14,8 +14,9 @@ public class Mercy extends Monster {
 
     public Mercy(){
         nyouronTexture= new Texture("Monsters/Pharah/Pharah1.png");
-        NYOURON_SPEED = 1.5f;
+        NYOURON_SPEED = 1.3f;
         hitpoint = 1;
+        spawnrate = 10;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,60,60);
         monstersAnimation = new Animation(); //test commit 2
         for (int i = 0;i < 15;i++) {
@@ -36,7 +37,7 @@ public class Mercy extends Monster {
     protected void update(TopBottomEdge ground1, float delta) {
         point.preUpdate();
         monstersAnimation.update(delta);
-        if(nyouronY + nyouronHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight()-200)
+        if(nyouronY + nyouronHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight()-300)
             nyouronYAccel += GRAVITY;
         else nyouronYAccel -= GRAVITY;
         calcMonsterYPos();
