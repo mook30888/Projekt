@@ -35,6 +35,7 @@ public class UserInterfaceTexture {
     Texture scoreTexture = new Texture(SCORE_TEXT_LOCATION);
     Texture zxTexture = new Texture(ZX_TEXT_LOCATION);
 
+
     public Texture numZeroTexture() {
         return numZeroTexture;
     }

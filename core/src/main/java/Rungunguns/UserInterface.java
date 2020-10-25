@@ -12,7 +12,7 @@ import static Rungunguns.Maingame.GAME_WIDTH;
 
 public class UserInterface {
     Texture[] numTexture = new Texture[10];
-    Texture startText,resultText,highscoreText,scoreText,zxText,spaceText;
+    Texture startText,resultText,highscoreText,scoreText,zxText,spaceText,returnText;
 
     List<Integer> Score = new LinkedList<Integer>();
 
@@ -24,12 +24,13 @@ public class UserInterface {
     private int messageY = (int)(GAME_HEIGHT - 100);
 
     public UserInterface(UserInterfaceTexture userInterfaceTexture){
-        highscoreText = new Texture("TextUI/0.png" );
+        highscoreText = new Texture("TextUI/Untitled.png" );
         startText = new Texture("TextUI/PressSpace.png");
         resultText = new Texture("TextUI/result.png");
         scoreText = new Texture("TextUI/score.png");
         zxText = new Texture("TextUI/zx.png");
         spaceText = new Texture("TextUI/space.png");
+        returnText = new Texture("TextUI/return1.png");
         numTexture[0] = userInterfaceTexture.numZeroTexture();
         numTexture[1] = userInterfaceTexture.numOneTexture();
         numTexture[2] = userInterfaceTexture.numTwoTexture();
@@ -65,7 +66,7 @@ public class UserInterface {
 
         digits = intToIntArrayByDigits(highscore);
 
-        g.drawTexture(highscoreText, GAME_WIDTH/2 - highscoreText.getWidth()/2, highscoreY);
+        g.drawTexture(highscoreText, GAME_WIDTH/2 - highscoreText.getWidth()/2, highscoreY-100);
 
         if(digits.length > 0) {
             for (int i = 0; i < digits.length; i++) {
@@ -83,7 +84,7 @@ public class UserInterface {
     }
 
     void displayResultMessage(Graphics g){
-        g.drawTexture(resultText, GAME_WIDTH/2 - resultText.getWidth()/2 , messageY-300);
+        g.drawTexture(resultText, GAME_WIDTH/2 - resultText.getWidth()/2 , messageY-350);
     }
 
         void displayScoreMessage(Graphics g){
@@ -95,6 +96,10 @@ public class UserInterface {
     }
 
     void displaySpace(Graphics g){ g.drawTexture(spaceText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)+150);}
+
+    void displayReturn(Graphics g){
+        g.drawTexture(returnText, (GAME_WIDTH/2)-75 - resultText.getWidth()/2 , messageY-50);
+    }
 
 
 
