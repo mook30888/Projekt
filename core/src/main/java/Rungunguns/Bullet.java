@@ -57,7 +57,7 @@ public class Bullet extends Hazards {
     }
 
     public void render(Graphics g){
-        g.drawTexture(bulletTexture.getBullet(), point.getX(),point.getY());
+        g.drawTexture(bulletTexture.bullet(), point.getX(),point.getY());
        // DrawPlayerCollisionBox(g); กรอบแดง
     }
 
