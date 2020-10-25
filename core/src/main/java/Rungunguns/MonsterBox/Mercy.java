@@ -13,7 +13,7 @@ public class Mercy extends Monster {
 
 
     public Mercy(){
-        nyouronTexture= new Texture("Monsters/Pharah/Pharah1.png");
+        nyouronTexture= new Texture("Monsters/Pharah/PharahOG.png");
         NYOURON_SPEED = 1.3f;
         hitpoint = 1;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,60,60);
