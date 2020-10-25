@@ -48,11 +48,13 @@ public class Grenade extends Hazards {
         point.preUpdate();
         point.set(point.getX() + GRENADE_SPEED, point.getY());
 
-        if(grenadeY + GrenadeHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight() )
-            grenadeYAccel += GRAVITY;
-        else grenadeYAccel = 0;
+        if(grenadeY + GrenadeHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight() ) {
+            grenadeYAccel += GRAVITY*2;
 
+        }
+        else grenadeYAccel = 0;
         calcbulletPos();
+
     }
 
     public void render(Graphics g){
@@ -74,8 +76,7 @@ public class Grenade extends Hazards {
     }
 
     void calcbulletPos() {
-        grenadeY += grenadeYAccel;
-        point.y = grenadeY;
+        point.y += grenadeYAccel;
         collisionBox.set(point.x,point.y);
     }
 }
