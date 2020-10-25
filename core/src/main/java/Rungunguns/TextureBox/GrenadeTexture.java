@@ -7,7 +7,7 @@ import java.awt.*;
 public class GrenadeTexture {
     private static final String GRENADE_TEXTURE_LOCATION = "cutenade.png";
 
-    Texture grenade = new Texture(Gdx.files.internal(GRENADE_TEXTURE_LOCATION));
+    static Texture grenade = new Texture(Gdx.files.internal(GRENADE_TEXTURE_LOCATION));
 
 
 

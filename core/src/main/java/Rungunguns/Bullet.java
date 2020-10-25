@@ -37,7 +37,7 @@ public class Bullet extends Hazards {
         return new CollisionBox(tempX, tempY, bulletWidth, bulletHeight);
     }
 
-    public boolean isOutOfScreen(List<Bullet> bullets, List<Bullet> toDelete) {
+    public boolean BulletisOutOfScreen(List<Bullet> bullets, List<Bullet> toDelete) {
         for (Bullet bullet : bullets) {
 
             if (collisionBox.getX() > 800) {

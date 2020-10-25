@@ -17,7 +17,7 @@ public class Player {
     private static float JUMP_ACCEL = -12.0f;
 
     private float playerTextureHeight, playerTextureWidth;
-    private boolean isTesting, isShooting;
+    private boolean isTesting, isShooting, isThrownade;
 
     private float playerY;
     private float playerYAccel = 0.0f;
@@ -95,6 +95,10 @@ public class Player {
 
     void shooting(){
         isShooting = true;
+    }
+
+    void Thrownade(){
+        isThrownade = true;
     }
 
     void calcPlayerYPos() {

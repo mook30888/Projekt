@@ -36,11 +36,13 @@ public class Maingame extends BasicGame {
     private static int playerScore, highScore;
 
     private List<Bullet> bullets = new ArrayList<Bullet>();
+    private List<Grenade> grenades = new ArrayList<Grenade>();
 
     Viewport fitViewport;
     InputHandler inputHandler;
     Player player;
     Bullet bullet;
+    Grenade grenade;
     PlayerTexture playerTexture;
     TopBottomEdge ground1, ground2;
     TopBottomEdgeTexture topBottomEdgeTexture;
@@ -77,6 +79,7 @@ public class Maingame extends BasicGame {
         background2 = new Background(backgroundTexture);
         background2.generateHazardAtPos(background1.width()-5, 0.0f);
         bullet = new Bullet();
+        grenade = new Grenade();
         player = new Player(playerTexture, IS_TESTING);
         monsters = new ArrayList<Monster>();
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
@@ -109,6 +112,15 @@ public class Maingame extends BasicGame {
                 bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
 
             }
+
+            if (inputHandler.cPressed()){
+                player.Thrownade();
+                Grenade grenade = new Grenade();
+                grenades.add(grenade);
+                grenade.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+
+            }
+
 
             /*if(randomFloatMinMax(1,100) < 5 ){
                 //NyouronA mon1 = new NyouronA();
@@ -149,9 +161,14 @@ public class Maingame extends BasicGame {
                 }
             }
             for (Bullet bul: bullets) {
-                bul.isOutOfScreen(bullets,toDel);
+                bul.BulletisOutOfScreen(bullets,toDel);
                 bul.update();
             }
+
+            for (Grenade gre: grenades) {
+                gre.update(ground1);
+            }
+
             bullets.removeAll(toDel);
             monsters.removeAll(toRemove);
 
@@ -186,6 +203,10 @@ public class Maingame extends BasicGame {
         for (Bullet bul: bullets) {
             bul.render(g);
         }
+        for (Grenade gre: grenades) {
+            gre.render(g);
+        }
+
         for(Monster monster : monsters){
             monster.render(g);
         }

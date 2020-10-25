@@ -42,20 +42,9 @@ public class Grenade extends Hazards {
         return new CollisionBox(tempX, tempY, GrenadetWidth, GrenadeHeight);
     }
 
-    public boolean isOutOfScreen(List<Bullet> bullets, List<Bullet> toDelete) {
-        for (Bullet bullet : bullets) {
-
-            if (collisionBox.getX() > 800) {
-                toDelete.add(bullet);
-                return true;
-            }
-
-        }
-        return false;
-    }
 
 
-    public void update(TopBottomEdge ground1,float delta){
+    public void update(TopBottomEdge ground1){
         point.preUpdate();
         point.set(point.getX() + GRENADE_SPEED, point.getY());
 
@@ -85,6 +74,8 @@ public class Grenade extends Hazards {
     }
 
     void calcbulletPos() {
+        grenadeY += grenadeYAccel;
+        point.y = grenadeY;
         collisionBox.set(point.x,point.y);
     }
 }
