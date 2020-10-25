@@ -54,7 +54,10 @@ public class Monster extends Hazards{
         else nyouronYAccel = 0;
 
         calcMonsterYPos();
-        point.set(point.getX() - NYOURON_SPEED, point.getY());
+        if(nyouronYAccel==0){
+            point.set(point.getX() - NYOURON_SPEED, point.getY());
+        }
+
     }
 
     public void render(Graphics g){

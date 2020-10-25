@@ -12,7 +12,6 @@ public class Pharah extends Monster {
         nyouronTexture= new Texture("Monsters/Pharah/Pharah1.png");
         NYOURON_SPEED = 3f;
         hitpoint = 1;
-        spawnrate = 5;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,52,70);
         monstersAnimation = new Animation(); //test commit 2
         for (int i = 0;i < 15;i++) {
