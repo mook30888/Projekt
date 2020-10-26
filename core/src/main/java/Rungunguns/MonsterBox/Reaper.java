@@ -30,7 +30,6 @@ public class Reaper extends Monster {
         monstersAnimation.addFrame(monsterSpriteSheet.getSprite(8), frameDuration);
 
         monstersAnimation.setLooping(true);
-
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();
         nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);

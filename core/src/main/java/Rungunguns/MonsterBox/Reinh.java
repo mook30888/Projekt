@@ -5,20 +5,19 @@ import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.graphics.Animation;
 import org.mini2Dx.core.graphics.SpriteSheet;
 
-public class Lucio extends Monster {
+public class Reinh extends Monster {
 
 
-    public Lucio(){
-        nyouronTexture = new Texture("Monsters/Lucio/Lucio.png");
-        NYOURON_SPEED = 4f;
-        hitpoint = 0;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,116,75);
+    public Reinh(){
+        nyouronTexture = new Texture("Monsters/Reinh/Reinh.png");
+        NYOURON_SPEED = 6f;
+        hitpoint = 1;
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,146,103);
         monstersAnimation = new Animation();
 
-        for(int i = 0;i < 6;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 5f);
+        for(int i = 0;i < 12;i++ ) {
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
-
 
         monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
