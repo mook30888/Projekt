@@ -19,7 +19,7 @@ public class Mercy extends Monster {
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,86,64);
         monstersAnimation = new Animation();
         for (int i = 0;i < 6;i++) {
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
+                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/1.2f);
         }
         monstersAnimation.setLooping(true);
 

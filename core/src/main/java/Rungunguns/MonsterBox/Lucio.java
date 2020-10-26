@@ -10,19 +10,16 @@ public class Lucio extends Monster {
 
     public Lucio(){
         nyouronTexture = new Texture("Monsters/Lucio/Webp.net-resizeimage.png");
-        NYOURON_SPEED = 8f;
+        NYOURON_SPEED = 4f;
         hitpoint = 0;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,60,70);
         monstersAnimation = new Animation();
 
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(0), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(1), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(2), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(3), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(4), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(5), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(6), frameDuration);
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7), frameDuration);
+        for(int i = 0;i < 7;i++ ) {
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 1.5f);
+        }
+
+
 
 
         //monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7),0.2f);
