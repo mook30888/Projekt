@@ -13,22 +13,22 @@ public class Reaper extends Monster {
 
 
     public Reaper(){
-        nyouronTexture = new Texture("Monsters/Reaper/Reaper.png");
+        nyouronTexture = new Texture("Monsters/Reaper/Reaper2.png");
         NYOURON_SPEED = 4f;
         hitpoint = 1;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,50,50);
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,75,75);
         monstersAnimation = new Animation();
-//        for (int i = 0;i < 9;i++) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(0), frameDuration/8);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(1), frameDuration/8f);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(2), frameDuration/8f);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(3), frameDuration/6f);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(4), frameDuration/2f);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(5), frameDuration);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(6), frameDuration);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7), frameDuration);
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(8), frameDuration);
-//        }
+
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(0), frameDuration/8);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(1), frameDuration/8f);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(2), frameDuration/8f);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(3), frameDuration/6f);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(4), frameDuration/2f);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(5), frameDuration);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(6), frameDuration);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7), frameDuration);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(8), frameDuration);
+
         monstersAnimation.setLooping(true);
 
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
