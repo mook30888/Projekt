@@ -51,7 +51,7 @@ public class Maingame extends BasicGame {
     UserInterfaceTexture userInterfaceTexture;
 
 
-    float spawnrate;
+    float spawnrate , startgame;
 
 
 
@@ -64,6 +64,7 @@ public class Maingame extends BasicGame {
         playerScore = 0;
         inputHandler = new InputHandler();
         spawnrate = 10;
+        startgame =0;
 
         playerTexture = new PlayerTexture();
         backgroundTexture = new BackgroundTexture();
@@ -90,72 +91,72 @@ public class Maingame extends BasicGame {
     @Override
     public void update(float delta) {
         if (isDead) {
+            if (inputHandler.SpacePressed()) {
+                initialise();
+            }
 
         } else {
             checkinput();
+            if(inGame) {
 
-            Lucio mon1 = new Lucio();
-            Pharah mon2 = new Pharah();
-            Mercy mon3  = new Mercy();
-            Tracer mon4 = new Tracer();
-           // Reaper mon5 = new Reaper();
-            Reinh mon6 = new Reinh();
+                Lucio mon1 = new Lucio();
+                Pharah mon2 = new Pharah();
+                Mercy mon3 = new Mercy();
+                Tracer mon4 = new Tracer();
+                Reaper mon5 = new Reaper();
 
-            spawnmonster(mon1,3);
-            spawnmonster(mon2,6);
-            spawnmonster(mon3,7);
-            spawnmonster(mon4,10);
-           // spawnmonster(mon5,5);
-            spawnmonster(mon6, 12);
-
-
-            List<Bullet> toDel = new ArrayList<Bullet>();
-            List<Monster> toRemove = new ArrayList<Monster>();
-            List<Grenade> toDelete = new ArrayList<Grenade>();
+                spawnmonster(mon1, 3);
+                spawnmonster(mon2, 6);
+                spawnmonster(mon3, 7);
+                spawnmonster(mon4, 10);
+                spawnmonster(mon5, 5);
 
 
+                List<Bullet> toDel = new ArrayList<Bullet>();
+                List<Monster> toRemove = new ArrayList<Monster>();
+                List<Grenade> toDelete = new ArrayList<Grenade>();
 
-            for(Monster monster:monsters){
-                monster.update(ground1,delta);
-                if(monster.mongotshot(bullets,toDel) || monster.mongotbomb(grenades,toDelete)) {
-                    if(monster.hitpoint == 0){
-                        toRemove.add(monster);
-                        scorethisgame +=1; //mons ตายเพิ่ม 1
-                        if(scorethisgame%10==0){
-                            spawnrate+=5;
+
+                for (Monster monster : monsters) {
+                    monster.update(ground1, delta);
+                    if (monster.mongotshot(bullets, toDel) || monster.mongotbomb(grenades, toDelete)) {
+                        if (monster.hitpoint == 0) {
+                            toRemove.add(monster);
+                            scorethisgame += 1; //mons ตายเพิ่ม 1
+                            if (scorethisgame % 10 == 0) {
+                                spawnrate += 5;
+                            }
                         }
+
                     }
-
+                    if (player.playerGotHit(monsters)) {
+                        setDead();
+                    }
                 }
-                if(player.playerGotHit(monsters)){
-                    setDead();
+
+
+                for (Bullet bul : bullets) {
+                    bul.BulletisOutOfScreen(bullets, toDel);
+                    bul.update();
                 }
+
+
+                for (Grenade gre : grenades) {
+                    gre.GrenadeisOutOfScreen(grenades, toDelete, GAME_HEIGHT - ground1.getGroundTextureHeight() - player.getPlayerTextureHeight());
+                    gre.update(ground1);
+                }
+
+                bullets.removeAll(toDel);
+                grenades.removeAll(toDelete);
+                monsters.removeAll(toRemove);
+
+
+                player.update(inputHandler.arrowupPressed(), GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
+                ground1.update();
+                ground2.update();
+                background1.update();
+                background2.update();
             }
-
-
-
-            for (Bullet bul: bullets) {
-                bul.BulletisOutOfScreen(bullets,toDel);
-                bul.update();
-            }
-
-
-            for (Grenade gre: grenades) {
-                gre.GrenadeisOutOfScreen(grenades,toDelete,GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
-                gre.update(ground1);
-            }
-
-            bullets.removeAll(toDel);
-            grenades.removeAll(toDelete);
-            monsters.removeAll(toRemove);
-
-
-
-            player.update(inputHandler.arrowupPressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
-            ground1.update();
-            ground2.update();
-            background1.update();
-            background2.update();
 
 
         }
@@ -176,7 +177,8 @@ public class Maingame extends BasicGame {
         background1.render(g);
         background2.render(g);
         player.render(g);
-
+        //ground1.render(g);
+       // ground2.render(g);
         for (Bullet bul: bullets) {
             bul.render(g);
         }
