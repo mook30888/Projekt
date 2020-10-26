@@ -103,13 +103,15 @@ public class Maingame extends BasicGame {
                 Pharah mon2 = new Pharah();
                 Mercy mon3 = new Mercy();
                 Tracer mon4 = new Tracer();
-                Reaper mon5 = new Reaper();
+                //Reaper mon5 = new Reaper();
+                Reinh mon6 = new Reinh();
 
                 spawnmonster(mon1, 3);
                 spawnmonster(mon2, 6);
                 spawnmonster(mon3, 7);
                 spawnmonster(mon4, 10);
-                spawnmonster(mon5, 5);
+                //spawnmonster(mon5, 5);
+                spawnmonster(mon6, 5);
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
