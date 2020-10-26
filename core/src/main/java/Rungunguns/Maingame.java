@@ -94,48 +94,12 @@ public class Maingame extends BasicGame {
         if (isDead) {
 
         } else {
-            if (inputHandler.spacePressed()) {
-                GRAVITY = GAME_GRAVITY;
-                inGame = true;
-            }
-            if (inputHandler.zPressed()){
-                player.shooting();
-                Bullet bullet = new Bullet();
-                bullets.add(bullet);
-                bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
+            checkinput();
 
-            }
-            if (inputHandler.xPressed()){
-                player.shooting();
-                Bullet bullet = new Bullet();
-                bullets.add(bullet);
-                bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
-
-            }
-
-            if (inputHandler.cPressed()){
-                player.Thrownade();
-                Grenade grenade = new Grenade();
-                grenades.add(grenade);
-                grenade.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
-
-            }
-
-
-            /*if(randomFloatMinMax(1,100) < 5 ){
-                //NyouronA mon1 = new NyouronA();
-                Pharah mon2 = new Pharah();
-                Mercy mon3= new Mercy();
-                //monsters.add(mon1);
-                monsters.add(mon3);
-                monsters.add(mon2);
-                //mon1.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
-                mon2.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
-                mon3.generateHazardAtPos(GAME_WIDTH,randomFloatMinMax(GAME_HEIGHT-400,GAME_HEIGHT-300));
-            }*/
             Pharah mon2 = new Pharah();
             Mercy mon3= new Mercy();
             Lucio mon1 = new Lucio();
+
             spawnmonster(mon1,5);
             spawnmonster(mon2,spawnrate);
             spawnmonster(mon3,randomFloatMinMax(spawnrate-50,spawnrate));
@@ -143,16 +107,19 @@ public class Maingame extends BasicGame {
 
             List<Bullet> toDel = new ArrayList<Bullet>();
             List<Monster> toRemove = new ArrayList<Monster>();
+            List<Grenade> toDelete = new ArrayList<Grenade>();
+
+
+
             for(Monster monster:monsters){
                 monster.update(ground1,delta);
-                if(monster.mongotshot(bullets,toDel)) {
+                if(monster.mongotshot(bullets,toDel) || monster.mongotbomb(grenades,toDelete)) {
                     if(monster.hitpoint == 0){
                         toRemove.add(monster);
                         scorethisgame +=1; //mons ตายเพิ่ม 1
                         if(scorethisgame%10==0){
                             spawnrate+=5;
                         }
-
                     }
 
                 }
@@ -160,6 +127,9 @@ public class Maingame extends BasicGame {
                     setDead();
                 }
             }
+
+
+
             for (Bullet bul: bullets) {
                 bul.BulletisOutOfScreen(bullets,toDel);
                 bul.update();
@@ -170,6 +140,7 @@ public class Maingame extends BasicGame {
             }
 
             bullets.removeAll(toDel);
+            grenades.removeAll(toDelete);
             monsters.removeAll(toRemove);
 
 
@@ -184,7 +155,8 @@ public class Maingame extends BasicGame {
         }
 
     }
-    
+
+
     @Override
     public void interpolate(float alpha) {
     
@@ -250,6 +222,36 @@ public class Maingame extends BasicGame {
         }
 
     }
+
+    private void checkinput() {
+        if (inputHandler.spacePressed()) {
+            GRAVITY = GAME_GRAVITY;
+            inGame = true;
+        }
+        if (inputHandler.zPressed()){
+            player.shooting();
+            Bullet bullet = new Bullet();
+            bullets.add(bullet);
+            bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
+
+        }
+        if (inputHandler.xPressed()){
+            player.shooting();
+            Bullet bullet = new Bullet();
+            bullets.add(bullet);
+            bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+
+        }
+
+        if (inputHandler.cPressed()){
+            player.Thrownade();
+            Grenade grenade = new Grenade();
+            grenades.add(grenade);
+            grenade.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+
+        }
+    }
+
 
 
 

@@ -79,6 +79,23 @@ public class Monster extends Hazards{
         return nyouroncollisionBox.getX()  <= 0;
     }
 
+    public boolean mongotbomb(List<Grenade> grenades, List<Grenade> toDelete){
+        for (Grenade grenade : grenades) {
+
+            if(nyouroncollisionBox.intersects(grenade.collisionBox)) {
+                hitpoint-=1;
+                toDelete.add(grenade);
+                return true;
+            }
+        }
+        return nyouroncollisionBox.getX()  <= 0;
+    }
+
+
+
+
+
+
     protected void calcMonsterYPos() {
         nyouronX = point.x;
         nyouronY += nyouronYAccel;
