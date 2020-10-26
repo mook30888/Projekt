@@ -10,5 +10,5 @@ public class InputHandler {
     boolean arrowDownPressed() {return Gdx.input.isKeyJustPressed(Input.Keys.DOWN);}
     boolean zPressed(){return  Gdx.input.isKeyJustPressed(Input.Keys.Z);}
     boolean xPressed(){return  Gdx.input.isKeyJustPressed(Input.Keys.X);}
-    boolean cPressed(){return  Gdx.input.isKeyJustPressed(Input.Keys.C);}
+    boolean SpacePressed(){return  Gdx.input.isKeyJustPressed(Input.Keys.SPACE);}
 }

@@ -79,7 +79,7 @@ public class Player {
             isShooting = false;
             playerTexture.playershooting().restart();
         }
-        calcPlayerYPos();
+        calcPlayerYPos(y-getPlayerTextureHeight());
     }
 
 
@@ -101,8 +101,10 @@ public class Player {
         isThrownade = true;
     }
 
-    void calcPlayerYPos() {
+    void calcPlayerYPos(float y) {
         playerY += playerYAccel;
+        if(playerY+playerYAccel > y){
+                playerY = y;}
         playerCollisionBox.setY(playerY);
     }
 

@@ -32,7 +32,7 @@ public class Maingame extends BasicGame {
     private static boolean IS_ROTATING = false;
     private static boolean IS_TESTING = false;
 
-    private boolean inGame, isDead;
+    private boolean inGame, isDead,Zshoot=true,Xshoot=false;
     private static int playerScore, highScore;
 
     private List<Bullet> bullets = new ArrayList<Bullet>();
@@ -228,22 +228,26 @@ public class Maingame extends BasicGame {
             GRAVITY = GAME_GRAVITY;
             inGame = true;
         }
-        if (inputHandler.zPressed()){
+        if (inputHandler.zPressed() && Zshoot){
+
             player.shooting();
             Bullet bullet = new Bullet();
             bullets.add(bullet);
             bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
+            Zshoot = false;
+            Xshoot = true;
 
         }
-        if (inputHandler.xPressed()){
+        if (inputHandler.xPressed() && Xshoot){
             player.shooting();
             Bullet bullet = new Bullet();
             bullets.add(bullet);
             bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
-
+            Zshoot=true;
+            Xshoot=false;
         }
 
-        if (inputHandler.cPressed()){
+        if (inputHandler.SpacePressed()){
             player.Thrownade();
             Grenade grenade = new Grenade();
             grenades.add(grenade);
