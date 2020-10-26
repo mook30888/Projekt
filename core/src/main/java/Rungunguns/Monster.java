@@ -28,7 +28,7 @@ public class Monster extends Hazards{
     protected float nyouronY, nyouronX;
     protected float nyouronYAccel = 0.0f;
 
-    protected static float NYOURON_SPEED;
+    protected float NYOURON_SPEED;
     protected float nyouronHeight;
     protected float nyouronWidth;
     protected int hitpoint;

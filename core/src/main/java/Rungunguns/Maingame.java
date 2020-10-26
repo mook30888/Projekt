@@ -3,6 +3,7 @@ package Rungunguns;
 import Rungunguns.MonsterBox.Mercy;
 import Rungunguns.MonsterBox.Pharah;
 import Rungunguns.MonsterBox.Lucio;
+import Rungunguns.MonsterBox.Reaper;
 import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
@@ -99,10 +100,13 @@ public class Maingame extends BasicGame {
             Pharah mon2 = new Pharah();
             Mercy mon3= new Mercy();
             Lucio mon1 = new Lucio();
+            Reaper mon4 = new Reaper();
 
             spawnmonster(mon1,5);
             spawnmonster(mon2,spawnrate);
             spawnmonster(mon3,randomFloatMinMax(spawnrate-50,spawnrate));
+            spawnmonster(mon4,spawnrate);
+
 
 
             List<Bullet> toDel = new ArrayList<Bullet>();
