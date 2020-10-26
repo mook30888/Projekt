@@ -11,12 +11,12 @@ public class Pharah extends Monster {
     public Pharah(){
         nyouronTexture = new Texture("Monsters/Pharah/Pharah4.png");
         NYOURON_SPEED = 3f;
-        hitpoint = 1;
+        hitpoint = 2;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,73,70);
         monstersAnimation = new Animation();
 
         for(int i = 0;i < 12;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 1.5f);
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 2.9f);
         }
 
         monstersAnimation.setLooping(true);

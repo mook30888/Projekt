@@ -15,11 +15,11 @@ public class Mercy extends Monster {
     public Mercy(){
         nyouronTexture = new Texture("Monsters/Mercy/Mercy.png");
         NYOURON_SPEED = 1f;
-        hitpoint = 1;
+        hitpoint = 2;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,86,64);
         monstersAnimation = new Animation();
         for (int i = 0;i < 6;i++) {
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/1.2f);
+                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/3.2f);
         }
         monstersAnimation.setLooping(true);
 
