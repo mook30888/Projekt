@@ -13,20 +13,18 @@ public class Mercy extends Monster {
 
 
     public Mercy(){
-        nyouronTexture= new Texture("Monsters/Pharah/PharahOG.png");
-        NYOURON_SPEED = 1.3f;
+        nyouronTexture = new Texture("Monsters/Mercy/Mercy.png");
+        NYOURON_SPEED = 1f;
         hitpoint = 1;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,60,60);
-        monstersAnimation = new Animation(); //test commit 2
-        for (int i = 0;i < 15;i++) {
-            if (i < 10 || i > 12) {
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,86,64);
+        monstersAnimation = new Animation();
+        for (int i = 0;i < 6;i++) {
                 monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
-            }
         }
-        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7),0.2f);
         monstersAnimation.setLooping(true);
-        nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
-        nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();
+
+        nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight()-20;
+        nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth()-20;
         nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);
         collisionRectHeight = nyouronHeight;
         collisionRectWidth = nyouronWidth;

@@ -9,18 +9,17 @@ public class Pharah extends Monster {
 
 
     public Pharah(){
-        nyouronTexture= new Texture("Monsters/Pharah/PharahOG.png");
+        nyouronTexture = new Texture("Monsters/Pharah/Pharah4.png");
         NYOURON_SPEED = 3f;
         hitpoint = 1;
-        spawnrate = 5;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,52,70);
-        monstersAnimation = new Animation(); //test commit 2
-        for (int i = 0;i < 15;i++) {
-            if (i < 10 || i > 12) {
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
-            }
-        }
-        //monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7),0.2f);
+        spawnrate = 1; //defult 5
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,73,70);
+        monstersAnimation = new Animation();
+
+        for(int i = 0;i < 12;i++ )
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/1.5f);
+
+
         monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();

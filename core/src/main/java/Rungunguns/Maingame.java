@@ -2,7 +2,7 @@ package Rungunguns;
 
 import Rungunguns.MonsterBox.Mercy;
 import Rungunguns.MonsterBox.Pharah;
-import Rungunguns.MonsterBox.Rienheart;
+import Rungunguns.MonsterBox.Lucio;
 import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
@@ -135,7 +135,7 @@ public class Maingame extends BasicGame {
             }*/
             Pharah mon2 = new Pharah();
             Mercy mon3= new Mercy();
-            Rienheart mon1 = new Rienheart();
+            Lucio mon1 = new Lucio();
             spawnmonster(mon1,5);
             spawnmonster(mon2,spawnrate);
             spawnmonster(mon3,randomFloatMinMax(spawnrate-50,spawnrate));
