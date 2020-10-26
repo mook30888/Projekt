@@ -135,7 +135,9 @@ public class Maingame extends BasicGame {
                 bul.update();
             }
 
+
             for (Grenade gre: grenades) {
+                gre.GrenadeisOutOfScreen(grenades,toDelete,GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
                 gre.update(ground1);
             }
 
