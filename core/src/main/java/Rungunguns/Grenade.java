@@ -1,5 +1,6 @@
 package Rungunguns;
 
+import Rungunguns.TextureBox.BombEffect;
 import Rungunguns.TextureBox.GrenadeTexture;
 import com.badlogic.gdx.graphics.Color;
 import org.mini2Dx.core.engine.geom.CollisionBox;
@@ -24,11 +25,14 @@ public class Grenade extends Hazards {
     private float collisionRectHeight;
     private float collisionRectWidth = 10f;
 
+
+    BombEffect bombEffect;
     CollisionBox collisionBox;
 
 
     public Grenade() {
         this.grenadeTexture = new GrenadeTexture();
+        bombEffect = new BombEffect();
         GrenadeHeight = GrenadeTexture.getGrenade().getHeight();
         GrenadetWidth = GrenadeTexture.getGrenade().getWidth();
         collisionRectHeight = GrenadeHeight;
@@ -58,7 +62,10 @@ public class Grenade extends Hazards {
     }
 
     public void render(Graphics g){
-        g.drawTexture(grenadeTexture.getGrenade(), point.getX(),point.getY());
+
+            g.drawTexture(grenadeTexture.getGrenade(), point.getX(),point.getY());
+
+
         // DrawPlayerCollisionBox(g); กรอบแดง
     }
 

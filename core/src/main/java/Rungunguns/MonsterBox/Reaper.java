@@ -14,9 +14,9 @@ public class Reaper extends Monster {
 
     public Reaper(){
         nyouronTexture = new Texture("Monsters/Reaper/Reaper.png");
-        NYOURON_SPEED = 6.9f;
+        NYOURON_SPEED = 4f;
         hitpoint = 1;
-        monsterSpriteSheet = new SpriteSheet(nyouronTexture,160,160);
+        monsterSpriteSheet = new SpriteSheet(nyouronTexture,50,50);
         monstersAnimation = new Animation();
 //        for (int i = 0;i < 9;i++) {
             monstersAnimation.addFrame(monsterSpriteSheet.getSprite(0), frameDuration/8);
@@ -31,8 +31,8 @@ public class Reaper extends Monster {
 //        }
         monstersAnimation.setLooping(true);
 
-        nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight()-20;
-        nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth()-20;
+        nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
+        nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();
         nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);
         collisionRectHeight = nyouronHeight;
         collisionRectWidth = nyouronWidth;
