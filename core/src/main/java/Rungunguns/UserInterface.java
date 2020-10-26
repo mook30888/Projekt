@@ -12,7 +12,9 @@ import static Rungunguns.Maingame.GAME_WIDTH;
 
 public class UserInterface {
     Texture[] numTexture = new Texture[10];
-    Texture startText,resultText,highscoreText,scoreText,zxText,spaceText,returnText;
+    Texture startText,resultText,highscoreText,
+            scoreText,zxText,spaceText,
+            returnText,downText,upText,bombText;
 
     List<Integer> Score = new LinkedList<Integer>();
 
@@ -31,6 +33,9 @@ public class UserInterface {
         zxText = new Texture("TextUI/zx.png");
         spaceText = new Texture("TextUI/space.png");
         returnText = new Texture("TextUI/return1.png");
+        upText = new Texture("TextUI/up.png");
+        downText = new Texture("TextUI/down.png");
+        bombText = new Texture("TextUI/bomb.png");
         numTexture[0] = userInterfaceTexture.numZeroTexture();
         numTexture[1] = userInterfaceTexture.numOneTexture();
         numTexture[2] = userInterfaceTexture.numTwoTexture();
@@ -80,7 +85,7 @@ public class UserInterface {
     }
 
     void displayStartMessage(Graphics g){
-        g.drawTexture(startText, GAME_WIDTH/2 - startText.getWidth()/2 , messageY);
+        g.drawTexture(startText, GAME_WIDTH/2 - startText.getWidth()/2 , messageY+20);
     }
 
     void displayResultMessage(Graphics g){
@@ -101,9 +106,16 @@ public class UserInterface {
         g.drawTexture(returnText, (GAME_WIDTH/2)-75 - resultText.getWidth()/2 , messageY-50);
     }
 
+    void displayUp(Graphics g){
+        g.drawTexture(upText,(GAME_WIDTH/2)-250 - scoreText.getWidth()/2 , (messageY/2)+150);
+    }
 
+    void displayDown(Graphics g){
+        g.drawTexture(downText,(GAME_WIDTH/2) - scoreText.getWidth()/2 , (messageY/2)+150);
+    }
 
-
-
+    void displayBomb(Graphics g){
+        g.drawTexture(bombText,(GAME_WIDTH/2) - scoreText.getWidth()/2 , (messageY/2)-12);
+    }
 
 }
