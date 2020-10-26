@@ -145,7 +145,7 @@ public class Maingame extends BasicGame {
 
 
 
-            player.update(inputHandler.spacePressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
+            player.update(inputHandler.arrowupPressed(),GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
             ground1.update();
             ground2.update();
             background1.update();
@@ -224,7 +224,7 @@ public class Maingame extends BasicGame {
     }
 
     private void checkinput() {
-        if (inputHandler.spacePressed()) {
+        if (inputHandler.arrowupPressed()) {
             GRAVITY = GAME_GRAVITY;
             inGame = true;
         }
@@ -249,6 +249,9 @@ public class Maingame extends BasicGame {
             grenades.add(grenade);
             grenade.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
 
+        }
+        if(inputHandler.arrowDownPressed()){
+            player.atground(GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
         }
     }
 

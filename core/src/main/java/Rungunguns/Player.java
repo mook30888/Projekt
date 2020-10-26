@@ -130,4 +130,7 @@ public class Player {
         return false;
     }
 
+    public void atground(float y) {
+        playerY = y;
+    }
 }
