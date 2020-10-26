@@ -21,7 +21,7 @@ public class UserInterface {
 
     Integer[] digits;
 
-    private float numWidth = 70;
+    private float numWidth = 45;
     private int highscoreY = 75;
     private int messageY = (int)(GAME_HEIGHT - 100);
 
@@ -76,11 +76,11 @@ public class UserInterface {
         if(digits.length > 0) {
             for (int i = 0; i < digits.length; i++) {
                 g.drawTexture(numTexture[digits[i]],
-                        (GAME_WIDTH / 2) - (digits.length * numWidth / 2) + (i * numWidth)+1,
-                        highscoreY + 30);
+                        (GAME_WIDTH / 2) - (digits.length * numWidth / 2) + (i * numWidth),
+                        highscoreY +60);
             }
         } else {
-            g.drawTexture(numTexture[0],GAME_WIDTH/2 - numWidth/2, highscoreY + 60);
+            g.drawTexture(numTexture[0],GAME_WIDTH/2 - numWidth/2, highscoreY+60 );
         }
     }
 
