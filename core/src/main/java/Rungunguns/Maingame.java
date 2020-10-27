@@ -55,7 +55,7 @@ public class Maingame extends BasicGame {
     UserInterfaceTexture userInterfaceTexture;
 
 
-    float spawnrate , startgame;
+    float spawnrate , startgame ,stagenow=0;
 
 
 
@@ -111,19 +111,50 @@ public class Maingame extends BasicGame {
             checkinput();
             if(inGame) {
 
-                Lucio mon1 = new Lucio();
-                Pharah mon2 = new Pharah();
-                Mercy mon3 = new Mercy();
-                Tracer mon4 = new Tracer();
-                Reinhardt mon5 = new Reinhardt();
-                Missile mon6 = new Missile();
+                Lucio lucio = new Lucio();
+                Pharah pharah = new Pharah();
+                Mercy mercy = new Mercy();
+                Tracer tracer = new Tracer();
+                Reinhardt reinhardt = new Reinhardt();
+                Missile missile = new Missile();
 
-                spawnmonster(mon1, 3);
-                spawnmonster(mon2, 6);
-                spawnmonster(mon3, 7);
-                spawnmonster(mon4, 10);
-                spawnmonster(mon5, 5);
-                spawnmonster(mon6,10);
+
+                checkStage();
+
+                if(stagenow==0){
+                    spawnmonster(pharah, 7);
+                    spawnmonster(lucio, 1);
+                    spawnmonster(tracer, 2);
+                    spawnmonster(reinhardt, 1);
+                }else if(stagenow==1){
+                    spawnmonster(pharah, 10);
+                    spawnmonster(lucio, 3);
+                    spawnmonster(tracer, 5);
+                    spawnmonster(reinhardt, 3);
+                    spawnmonster(mercy, 3);
+                }else if(stagenow==2){
+                    spawnmonster(pharah, 11);
+                    spawnmonster(lucio, 3);
+                    spawnmonster(tracer, 10);
+                    spawnmonster(reinhardt, 4);
+                    spawnmonster(mercy, 7);
+                    spawnmonster(missile,5);
+                }else if(stagenow==3){
+                    spawnmonster(pharah, 15);
+                    spawnmonster(lucio, 3);
+                    spawnmonster(tracer, 13);
+                    spawnmonster(reinhardt, 7);
+                    spawnmonster(mercy, 8);
+                    spawnmonster(missile,7);
+                }else {
+                    spawnmonster(pharah, 20);
+                    spawnmonster(lucio, 5);
+                    spawnmonster(tracer, 17);
+                    spawnmonster(reinhardt, 6);
+                    spawnmonster(mercy, 16);
+                    spawnmonster(missile,10);
+                }
+
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
@@ -146,8 +177,8 @@ public class Maingame extends BasicGame {
                         }
                     }
 
-                    if (player.playerGotHit(monster)) {
-                        setDead();
+                    if (player.playerGotHit(monster)&&inGame) {
+                            setDead();
                     }
                 }
 
@@ -222,7 +253,8 @@ public class Maingame extends BasicGame {
             userInterface.displayResultMessage(g);
             userInterface.displayReturn(g);
             manager.get("Sounds/Star Fox.wav",Music.class).stop();
-            //manager.get("Sounds/enthu.wav",Sound.class).play();
+
+
 
         }
 
@@ -290,4 +322,17 @@ public class Maingame extends BasicGame {
             player.atground(GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
         }
     }
+
+
+    private void checkStage(){
+        if(scorethisgame==0)stagenow=0;
+        if(10 <scorethisgame && scorethisgame <=50)stagenow=1;
+        if(50 <scorethisgame && scorethisgame <=200)stagenow=2;
+        if(200 <scorethisgame && scorethisgame <=500)stagenow=3;
+        if(500 < scorethisgame)stagenow=4;
+
+    }
+
+
+
 }

@@ -133,7 +133,6 @@ public class Player {
     float getPlayerTextureWidth() {return playerTextureWidth; }
 
     boolean playerGotHit(Monster monsters){
-
             if(monsters.nyouroncollisionBox.intersects(playerCollisionBox)) {
                 return true;
             }else return false;
