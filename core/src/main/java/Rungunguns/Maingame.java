@@ -120,39 +120,39 @@ public class Maingame extends BasicGame {
 
 
                 checkStage();
-
+                System.out.println(stagenow);
                 if(stagenow==0){
-                    spawnmonster(pharah, 7);
-                    spawnmonster(lucio, 1);
-                    spawnmonster(tracer, 2);
-                    spawnmonster(reinhardt, 1);
-                }else if(stagenow==1){
                     spawnmonster(pharah, 10);
-                    spawnmonster(lucio, 3);
+                    spawnmonster(lucio, 1);
                     spawnmonster(tracer, 5);
-                    spawnmonster(reinhardt, 3);
-                    spawnmonster(mercy, 3);
-                }else if(stagenow==2){
-                    spawnmonster(pharah, 11);
+                    spawnmonster(reinhardt, 2);
+                }else if(stagenow==1){
+                    spawnmonster(pharah, 18);
                     spawnmonster(lucio, 3);
                     spawnmonster(tracer, 10);
-                    spawnmonster(reinhardt, 4);
-                    spawnmonster(mercy, 7);
+                    spawnmonster(reinhardt, 7);
+                    spawnmonster(mercy, 6);
+                }else if(stagenow==2){
+                    spawnmonster(pharah, 23);
+                    spawnmonster(lucio, 5);
+                    spawnmonster(tracer, 20);
+                    spawnmonster(reinhardt, 9);
+                    spawnmonster(mercy, 10);
                     spawnmonster(missile,5);
                 }else if(stagenow==3){
-                    spawnmonster(pharah, 15);
-                    spawnmonster(lucio, 3);
-                    spawnmonster(tracer, 13);
-                    spawnmonster(reinhardt, 7);
-                    spawnmonster(mercy, 8);
-                    spawnmonster(missile,7);
-                }else {
-                    spawnmonster(pharah, 20);
-                    spawnmonster(lucio, 5);
-                    spawnmonster(tracer, 17);
-                    spawnmonster(reinhardt, 6);
-                    spawnmonster(mercy, 16);
+                    spawnmonster(pharah, 35);
+                    spawnmonster(lucio, 8);
+                    spawnmonster(tracer, 30);
+                    spawnmonster(reinhardt, 14);
+                    spawnmonster(mercy, 15);
                     spawnmonster(missile,10);
+                }else {
+                    spawnmonster(pharah, 40);
+                    spawnmonster(lucio, 10);
+                    spawnmonster(tracer, 37);
+                    spawnmonster(reinhardt, 18);
+                    spawnmonster(mercy, 20);
+                    spawnmonster(missile,15);
                 }
 
 
