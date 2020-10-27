@@ -143,8 +143,8 @@ public class Maingame extends BasicGame {
                                 spawnrate += 5;
                             }
                         }
-
                     }
+
                     if (player.playerGotHit(monster)) {
                         setDead();
                     }

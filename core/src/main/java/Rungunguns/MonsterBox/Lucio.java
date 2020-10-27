@@ -27,6 +27,7 @@ public class Lucio extends Monster {
         monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();
+
         nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);
         collisionRectHeight = nyouronHeight;
         collisionRectWidth = nyouronWidth;

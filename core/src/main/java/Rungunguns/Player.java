@@ -41,6 +41,11 @@ public class Player {
     }
 
     void settingPlayerJumping() {
+        if(playerY+JUMP_ACCEL<0){
+            JUMP_ACCEL=0;
+        }else {
+            JUMP_ACCEL=-12.0f;
+        }
         playerYAccel = JUMP_ACCEL;
     }
 
@@ -70,7 +75,7 @@ public class Player {
 
 
         if (isJumping) {
-            settingPlayerJumping();
+           settingPlayerJumping();
         } else {
             if(playerY+playerTextureHeight <= y )
                 playerYAccel += GRAVITY;
@@ -107,6 +112,9 @@ public class Player {
         playerY += playerYAccel;
         if(playerY+playerYAccel > y){
                 playerY = y;}
+        if(playerY+playerYAccel <=0){
+            playerY =0;
+        }
         playerCollisionBox.setY(playerY);
     }
 
