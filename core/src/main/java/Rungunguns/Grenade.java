@@ -87,16 +87,12 @@ public class Grenade extends Hazards {
         collisionBox.set(point.x,point.y);
     }
 
-    public boolean GrenadeisOutOfScreen(List<Grenade> grenades, List<Grenade> toDelete,float y) {
-        for (Grenade grenade : grenades) {
-
+    public boolean GrenadeisOutOfScreen(Grenade grenades, List<Grenade> toDelete,float y) {
             if (collisionBox.getY() > y) {
-                toDelete.add(grenade);
+                toDelete.add(grenades);
                 return true;
-            }
+        }else return false;
 
-        }
-        return false;
     }
 
 

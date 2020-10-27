@@ -23,8 +23,6 @@ public class Monster extends Hazards{
     protected SpriteSheet monsterSpriteSheet;
     protected Animation monstersAnimation;
 
-    protected static float NYOURON_X = 100;
-    protected static float JUMP_ACCEL = -12.0f;
     protected float nyouronY, nyouronX;
     protected float nyouronYAccel = 0.0f;
 
@@ -55,7 +53,7 @@ public class Monster extends Hazards{
 
         calcMonsterYPos();
         if(nyouronYAccel==0){
-            point.set(point.getX() - NYOURON_SPEED, point.getY());
+            point.set(point.getX() - NYOURON_SPEED,300);
         }
 
     }
@@ -101,7 +99,6 @@ public class Monster extends Hazards{
         nyouronY += nyouronYAccel;
         point.y = nyouronY;
         nyouroncollisionBox.set(nyouronX,nyouronY);
-       // nyouroncollisionBox.setY(nyouronY);
     }
     void DrawPlayerCollisionBox(Graphics g) {
         g.setColor(Color.RED);
