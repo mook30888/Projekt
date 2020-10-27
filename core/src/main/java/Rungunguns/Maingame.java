@@ -6,6 +6,7 @@ import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import Rungunguns.TextureBox.UserInterfaceTexture;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -90,6 +91,9 @@ public class Maingame extends BasicGame {
 
         manager = new AssetManager();
         manager.load("Sounds/gunshot.mp3", Sound.class);
+        manager.load("Sounds/Pekora.wav", Music.class);
+        manager.load("Sounds/Star Fox.wav",Music.class);
+        manager.load("Sounds/flash.mp3",Sound.class);
         manager.finishLoading();
 
 
@@ -124,6 +128,9 @@ public class Maingame extends BasicGame {
                 List<Bullet> toDel = new ArrayList<Bullet>();
                 List<Monster> toRemove = new ArrayList<Monster>();
                 List<Grenade> toDelete = new ArrayList<Grenade>();
+
+                manager.get("Sounds/Pekora.wav", Music.class).stop();
+                manager.get("Sounds/Star Fox.wav",Music.class).play();
 
 
                 for (Monster monster : monsters) {
@@ -207,12 +214,13 @@ public class Maingame extends BasicGame {
             userInterface.displayUp(g);
             userInterface.displayDown(g);
             userInterface.displayBomb(g);
-
+            manager.get("Sounds/Pekora.wav", Music.class).play();
         }
         if (isDead){
             userInterface.displayHighscore(g,scorethisgame);
             userInterface.displayResultMessage(g);
             userInterface.displayReturn(g);
+            manager.get("Sounds/Star Fox.wav",Music.class).stop();
         }
 
 
@@ -272,6 +280,7 @@ public class Maingame extends BasicGame {
             Grenade grenade = new Grenade();
             grenades.add(grenade);
             grenade.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
+            manager.get("Sounds/flash.mp3",Sound.class).play();
 
         }
         if(inputHandler.arrowDownPressed()){
