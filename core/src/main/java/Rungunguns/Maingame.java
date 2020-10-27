@@ -5,6 +5,7 @@ import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import Rungunguns.TextureBox.UserInterfaceTexture;
+import com.badlogic.gdx.utils.Timer;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
@@ -65,6 +66,7 @@ public class Maingame extends BasicGame {
         inputHandler = new InputHandler();
         spawnrate = 10;
         startgame =0;
+        scorethisgame =0;
 
         playerTexture = new PlayerTexture();
         backgroundTexture = new BackgroundTexture();
@@ -103,15 +105,15 @@ public class Maingame extends BasicGame {
                 Pharah mon2 = new Pharah();
                 Mercy mon3 = new Mercy();
                 Tracer mon4 = new Tracer();
-                //Reaper mon5 = new Reaper();
-                Reinh mon6 = new Reinh();
+                Reaper mon5 = new Reaper();
+                //Reinh mon6 = new Reinh();
 
                 spawnmonster(mon1, 3);
                 spawnmonster(mon2, 6);
                 spawnmonster(mon3, 7);
                 spawnmonster(mon4, 10);
-                //spawnmonster(mon5, 5);
-                spawnmonster(mon6, 5);
+                spawnmonster(mon5, 5);
+                //spawnmonster(mon6, 5);
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
@@ -131,7 +133,7 @@ public class Maingame extends BasicGame {
                         }
 
                     }
-                    if (player.playerGotHit(monsters)) {
+                    if (player.playerGotHit(monster)) {
                         setDead();
                     }
                 }
@@ -229,7 +231,7 @@ public class Maingame extends BasicGame {
     public void spawnmonster(Monster a,float spawnrate){
         if(randomFloatMinMax(1,1000) < spawnrate ){
             monsters.add(a);
-            a.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT/2);
+            a.generateHazardAtPos(GAME_WIDTH,GAME_HEIGHT);
         }
 
     }
@@ -237,6 +239,7 @@ public class Maingame extends BasicGame {
     private void checkinput() {
         if (inputHandler.arrowupPressed()) {
             GRAVITY = GAME_GRAVITY;
+
             inGame = true;
         }
         if (inputHandler.zPressed() && Zshoot){

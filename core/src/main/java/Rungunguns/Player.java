@@ -17,7 +17,8 @@ public class Player {
     private static float JUMP_ACCEL = -12.0f;
 
     private float playerTextureHeight, playerTextureWidth;
-    private boolean isTesting, isShooting, isThrownade;
+    private boolean isTesting, isShooting, isThrownade ;
+    public boolean justhit = true;
 
     private float playerY;
     private float playerYAccel = 0.0f;
@@ -26,6 +27,7 @@ public class Player {
     CollisionBox playerCollisionBox;
 
     private PlayerTexture playerTexture;
+    public float playerHp=100;
 
     public Player(PlayerTexture playerTexture, boolean isTesting) {
         this.isShooting = false;
@@ -122,14 +124,13 @@ public class Player {
 
     float getPlayerTextureWidth() {return playerTextureWidth; }
 
-    boolean playerGotHit(List<Monster> monsters){
-        for (Monster monster : monsters) {
+    boolean playerGotHit(Monster monsters){
 
-            if(monster.nyouroncollisionBox.intersects(playerCollisionBox)) {
+            if(monsters.nyouroncollisionBox.intersects(playerCollisionBox)) {
                 return true;
-            }
-        }
-        return false;
+            }else return false;
+
+
     }
 
     public void atground(float y) {
