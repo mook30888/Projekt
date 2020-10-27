@@ -7,7 +7,6 @@ import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import Rungunguns.TextureBox.UserInterfaceTexture;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.utils.Timer;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
 import org.mini2Dx.core.graphics.viewport.FitViewport;
@@ -111,15 +110,15 @@ public class Maingame extends BasicGame {
                 Pharah mon2 = new Pharah();
                 Mercy mon3 = new Mercy();
                 Tracer mon4 = new Tracer();
-                Reaper mon5 = new Reaper();
-                //Reinh mon6 = new Reinh();
+                Reinhardt mon5 = new Reinhardt();
+                Missile mon6 = new Missile();
 
                 spawnmonster(mon1, 3);
                 spawnmonster(mon2, 6);
                 spawnmonster(mon3, 7);
                 spawnmonster(mon4, 10);
                 spawnmonster(mon5, 5);
-                //spawnmonster(mon6, 5);
+                spawnmonster(mon6,10);
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
@@ -188,8 +187,6 @@ public class Maingame extends BasicGame {
         background1.render(g);
         background2.render(g);
         player.render(g);
-        //ground1.render(g);
-       // ground2.render(g);
         for (Bullet bul: bullets) {
             bul.render(g);
         }

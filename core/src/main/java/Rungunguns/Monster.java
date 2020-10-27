@@ -101,7 +101,7 @@ public class Monster extends Hazards{
         point.y = nyouronY;
         nyouroncollisionBox.set(nyouronX,nyouronY); //ตำแหน่งhitbox
     }
-    void DrawPlayerCollisionBox(Graphics g) {
+    protected void DrawPlayerCollisionBox(Graphics g) {
         g.setColor(monsterscolor);
         nyouronCollisionVertices = nyouroncollisionBox.getVertices();
 

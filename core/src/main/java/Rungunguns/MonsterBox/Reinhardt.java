@@ -5,11 +5,11 @@ import com.badlogic.gdx.graphics.Texture;
 import org.mini2Dx.core.graphics.Animation;
 import org.mini2Dx.core.graphics.SpriteSheet;
 
-public class Reinh extends Monster {
+public class Reinhardt extends Monster {
 
 
-    public Reinh(){
-        nyouronTexture = new Texture("Monsters/Reinh/Reinh.png");
+    public Reinhardt(){
+        nyouronTexture = new Texture("Monsters/Reinh/Reinhardt.png");
         NYOURON_SPEED = 6f;
         hitpoint = 1;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,146,103);
