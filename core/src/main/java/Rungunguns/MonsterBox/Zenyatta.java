@@ -18,19 +18,29 @@ public class Zenyatta extends Monster {
 
     public Zenyatta(){
         nyouronTexture = new Texture("Monsters/Zenyatta/Zenyatta.png");
-        NYOURON_SPEED = 12f;
+        NYOURON_SPEED = 5.5f;
         hitpoint = 3;
 
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,133,133);
         monstersAnimation = new Animation();
-
-        for(int i = 0;i < 13;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 4);
-        }
-
+//        for(int i = 0;i < 13;i++ ) {
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(0), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(1), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(2), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(3), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(4), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(5), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(6), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(7), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(8), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(9), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(10), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(11), frameDuration/2);
+        monstersAnimation.addFrame(monsterSpriteSheet.getSprite(12), frameDuration/2);
+//        }
+        monstersAnimation.setLooping(true);
         monsterscolor = Color.GOLD;
 
-        monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();
 
@@ -42,16 +52,6 @@ public class Zenyatta extends Monster {
     }
 
     @Override
-    protected void update(TopBottomEdge ground1, float delta) {
-        point.preUpdate();
-
-        if (nyouronY + nyouronHeight <= randomFloatMinMax(randomFloatMinMax(0, 30), GAME_HEIGHT - ground1.getGroundTextureHeight() - 50))
-            nyouronYAccel += GRAVITY;
-        else nyouronYAccel = 2;
-        calcMonsterYPos();
-        point.set(point.getX() - NYOURON_SPEED, point.getY());
-    }
-        @Override
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
@@ -64,10 +64,14 @@ public class Zenyatta extends Monster {
         point.y = nyouronY;
         nyouroncollisionBox.set(nyouronX+30,nyouronY+30); //ตำแหน่งhitbox
     }
-
-        float randomFloatMinMax(float min, float max) {
-            float leftLimit = min;
-            float rightLimit = max;
-            return leftLimit + new Random().nextFloat() * (rightLimit - leftLimit);
-        }
+    @Override
+    protected void update(TopBottomEdge ground1, float delta) {
+        point.preUpdate();
+        monstersAnimation.update(delta);
+        if(nyouronY + nyouronHeight <= GAME_HEIGHT - ground1.getGroundTextureHeight()-150)
+            nyouronYAccel += GRAVITY;
+        else nyouronYAccel -= 2f;
+        calcMonsterYPos();
+        point.set(point.getX() - NYOURON_SPEED, point.getY());
+    }
 }

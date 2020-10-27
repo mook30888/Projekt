@@ -12,8 +12,8 @@ public class Reinhardt extends Monster {
 
     public Reinhardt(){
         nyouronTexture = new Texture("Monsters/Reinh/Reinhardt.png");
-        NYOURON_SPEED = 4;
-        hitpoint = 24;
+        NYOURON_SPEED = 3.8f;
+        hitpoint = 20;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,146,103);
         monstersAnimation = new Animation();
 

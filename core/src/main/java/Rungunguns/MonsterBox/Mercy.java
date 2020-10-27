@@ -21,7 +21,7 @@ public class Mercy extends Monster {
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,86,64);
         monstersAnimation = new Animation();
         for (int i = 0;i < 6;i++) {
-                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/3.2f);
+                monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
         monsterscolor = Color.YELLOW;

@@ -18,7 +18,7 @@ public class Tracer extends Monster {
         monstersAnimation = new Animation();
 
         for(int i = 0;i < 8;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/1.5f);
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
         monstersAnimation.setLooping(true);

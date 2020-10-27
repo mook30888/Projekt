@@ -16,13 +16,13 @@ public class Junkrat extends Monster {
 
     public Junkrat(){
         nyouronTexture = new Texture("Monsters/Junkrat/Junkrat.png");
-        NYOURON_SPEED = 6;
+        NYOURON_SPEED = 3;
         hitpoint = 2;
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,105,105);
         monstersAnimation = new Animation();
 
         for(int i = 0;i < 6;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/2);
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/2.5f);
         }
 
         monstersAnimation.setLooping(true);

@@ -118,7 +118,7 @@ public class Maingame extends BasicGame {
                 Missile missile = new Missile();
                 Zenyatta zenyatta = new Zenyatta();
                 Junkrat junkrat = new Junkrat();
-
+                Genji genji = new Genji();
 
                 checkStage();
                 System.out.println(stagenow);
@@ -129,23 +129,25 @@ public class Maingame extends BasicGame {
                     spawnmonster(reinhardt, 2);
                     spawnmonster(zenyatta,3);
                     spawnmonster(junkrat,2);
+                    spawnmonster(genji,20);
                 }else if(stagenow==1){
-                    spawnmonster(pharah, 18);
-                    spawnmonster(lucio, 3);
-                    spawnmonster(tracer, 10);
-                    spawnmonster(reinhardt, 7);
-                    spawnmonster(mercy, 6);
-                    spawnmonster(zenyatta,5);
-                    spawnmonster(junkrat,2);
-                }else if(stagenow==2){
-                    spawnmonster(pharah, 23);
+                    spawnmonster(pharah, 6);
                     spawnmonster(lucio, 5);
-                    spawnmonster(tracer, 20);
-                    spawnmonster(reinhardt, 9);
+                    spawnmonster(tracer, 6);
+                    spawnmonster(reinhardt, 4);
+                    spawnmonster(mercy, 5);
+                    spawnmonster(zenyatta,5);
+                    spawnmonster(junkrat,4);
+                    spawnmonster(genji,4);
+                }else if(stagenow==2){
+                    spawnmonster(pharah, 11);
+                    spawnmonster(lucio, 10);
+                    spawnmonster(tracer, 11);
+                    spawnmonster(reinhardt, 10);
                     spawnmonster(mercy, 10);
-                    spawnmonster(missile,5);
-                    spawnmonster(zenyatta,6);
-                    spawnmonster(junkrat,2);
+                    spawnmonster(zenyatta,10);
+                    spawnmonster(junkrat,10);
+                    spawnmonster(genji,10);
                 }else if(stagenow==3){
                     spawnmonster(pharah, 35);
                     spawnmonster(lucio, 8);

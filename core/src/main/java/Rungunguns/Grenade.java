@@ -64,8 +64,6 @@ public class Grenade extends Hazards {
     public void render(Graphics g){
 
             g.drawTexture(grenadeTexture.getGrenade(), point.getX(),point.getY());
-
-
         // DrawPlayerCollisionBox(g); กรอบแดง
     }
 
@@ -98,12 +96,5 @@ public class Grenade extends Hazards {
         }
         return false;
     }
-
-
-
-
-
-
-
 
 }

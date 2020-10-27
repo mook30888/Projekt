@@ -12,14 +12,14 @@ public class Lucio extends Monster {
 
     public Lucio(){
         nyouronTexture = new Texture("Monsters/Lucio/Lucio.png");
-        NYOURON_SPEED = 12f;
+        NYOURON_SPEED = 8f;
         hitpoint = 3;
 
         monsterSpriteSheet = new SpriteSheet(nyouronTexture,120,120);
         monstersAnimation = new Animation();
 
         for(int i = 0;i < 6;i++ ) {
-            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration / 4);
+            monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
         monsterscolor = Color.GREEN;
