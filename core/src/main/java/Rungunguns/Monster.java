@@ -19,6 +19,7 @@ public class Monster extends Hazards{
     protected boolean isRotating;
     protected Texture nyouronTexture;
     protected  float frameDuration = 0.12f;
+    protected Color monsterscolor;
 
     protected SpriteSheet monsterSpriteSheet;
     protected Animation monstersAnimation;
@@ -40,7 +41,7 @@ public class Monster extends Hazards{
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth, nyouronHeight);
+        return new CollisionBox(tempX, tempY, nyouronWidth, nyouronHeight); //ขนาด
     }
 
     protected void update(TopBottomEdge ground1,float delta) {
@@ -98,10 +99,10 @@ public class Monster extends Hazards{
         nyouronX = point.x;
         nyouronY += nyouronYAccel;
         point.y = nyouronY;
-        nyouroncollisionBox.set(nyouronX,nyouronY);
+        nyouroncollisionBox.set(nyouronX,nyouronY); //ตำแหน่งhitbox
     }
     void DrawPlayerCollisionBox(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(monsterscolor);
         nyouronCollisionVertices = nyouroncollisionBox.getVertices();
 
         for(int i=0; i<7; i=i+2){
