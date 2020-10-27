@@ -5,6 +5,8 @@ import Rungunguns.TextureBox.BackgroundTexture;
 import Rungunguns.TextureBox.PlayerTexture;
 import Rungunguns.TextureBox.TopBottomEdgeTexture;
 import Rungunguns.TextureBox.UserInterfaceTexture;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.Timer;
 import org.mini2Dx.core.game.BasicGame;
 import org.mini2Dx.core.graphics.Graphics;
@@ -23,6 +25,7 @@ public class Maingame extends BasicGame {
     public static float FLYING_SPEED;
     public static final float GAME_WIDTH = 800;
     public static final float GAME_HEIGHT = 500;
+    public static AssetManager manager;
 
     //These variables change how it feels to play the game.
     private static float GAME_GRAVITY = 0.6f;
@@ -86,6 +89,9 @@ public class Maingame extends BasicGame {
         fitViewport = new FitViewport(GAME_WIDTH, GAME_HEIGHT);
         userInterface = new UserInterface(new UserInterfaceTexture());
 
+        manager = new AssetManager();
+        manager.load("Sounds/gunshot.mp3", Sound.class);
+        manager.finishLoading();
 
 
     }
@@ -142,6 +148,7 @@ public class Maingame extends BasicGame {
                 for (Bullet bul : bullets) {
                     bul.BulletisOutOfScreen(bullets, toDel);
                     bul.update();
+
                 }
 
 
@@ -250,6 +257,7 @@ public class Maingame extends BasicGame {
             bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+30,player.getPlayerY()+15));
             Zshoot = false;
             Xshoot = true;
+            manager.get("Sounds/gunshot.mp3", Sound.class).play();
 
         }
         if (inputHandler.xPressed() && Xshoot){
@@ -259,6 +267,7 @@ public class Maingame extends BasicGame {
             bullet.generateHazardAtPos(Player.PLAYER_X + player.getPlayerTextureWidth(), randomFloatMinMax(player.getPlayerY()+42,player.getPlayerY()+30));
             Zshoot=true;
             Xshoot=false;
+            manager.get("Sounds/gunshot.mp3", Sound.class).play();
         }
 
         if (inputHandler.SpacePressed()){
