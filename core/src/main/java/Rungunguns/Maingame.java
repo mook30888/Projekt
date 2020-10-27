@@ -278,5 +278,4 @@ public class Maingame extends BasicGame {
             player.atground(GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
         }
     }
-
 }
