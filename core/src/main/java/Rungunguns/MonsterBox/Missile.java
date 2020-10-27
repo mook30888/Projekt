@@ -17,8 +17,8 @@ public class Missile extends Monster {
 
     public Missile(){
         nyouronTexture = new Texture("Monsters/Rocket/Rocket.png");
-        NYOURON_SPEED = 5f;
-        hitpoint = 0;
+        NYOURON_SPEED = 5;
+        hitpoint = 5;
         nyouronHeight = nyouronTexture.getHeight();
         nyouronWidth = nyouronTexture.getWidth();
         nyouroncollisionBox = generateCollisionRectAt(point.x,point.y);

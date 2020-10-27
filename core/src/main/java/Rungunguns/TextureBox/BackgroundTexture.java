@@ -7,7 +7,7 @@ import java.util.IllegalFormatWidthException;
 
 
 public class BackgroundTexture {
-    private static final String BACKGROUND_TEXTURE_LOCATION = "Scene/metropolislight.png";
+    private static final String BACKGROUND_TEXTURE_LOCATION = "Scene/Metro.jpg";
 
     Texture background = new Texture(Gdx.files.internal(BACKGROUND_TEXTURE_LOCATION));
 

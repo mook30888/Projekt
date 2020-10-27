@@ -113,7 +113,7 @@ public class Player {
         if(playerY+playerYAccel > y){
                 playerY = y;}
         if(playerY+playerYAccel <=0){
-            playerY =0;
+            playerY =18;
         }
         playerCollisionBox.setY(playerY);
     }

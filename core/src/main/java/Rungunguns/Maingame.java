@@ -27,7 +27,6 @@ public class Maingame extends BasicGame {
     public static final float GAME_HEIGHT = 500;
     public static AssetManager manager;
 
-    //These variables change how it feels to play the game.
     private static float GAME_GRAVITY = 0.6f;
     private static int scorethisgame = 0;
     private static float GAME_FLYING_SPEED = 8f;
@@ -117,21 +116,27 @@ public class Maingame extends BasicGame {
                 Tracer tracer = new Tracer();
                 Reinhardt reinhardt = new Reinhardt();
                 Missile missile = new Missile();
+                Zenyatta zenyatta = new Zenyatta();
+                Junkrat junkrat = new Junkrat();
 
 
                 checkStage();
                 System.out.println(stagenow);
                 if(stagenow==0){
-                    spawnmonster(pharah, 10);
-                    spawnmonster(lucio, 1);
-                    spawnmonster(tracer, 5);
+                    spawnmonster(pharah, 4);
+                    spawnmonster(lucio, 3);
+                    spawnmonster(tracer, 4);
                     spawnmonster(reinhardt, 2);
+                    spawnmonster(zenyatta,3);
+                    spawnmonster(junkrat,2);
                 }else if(stagenow==1){
                     spawnmonster(pharah, 18);
                     spawnmonster(lucio, 3);
                     spawnmonster(tracer, 10);
                     spawnmonster(reinhardt, 7);
                     spawnmonster(mercy, 6);
+                    spawnmonster(zenyatta,5);
+                    spawnmonster(junkrat,2);
                 }else if(stagenow==2){
                     spawnmonster(pharah, 23);
                     spawnmonster(lucio, 5);
@@ -139,6 +144,8 @@ public class Maingame extends BasicGame {
                     spawnmonster(reinhardt, 9);
                     spawnmonster(mercy, 10);
                     spawnmonster(missile,5);
+                    spawnmonster(zenyatta,6);
+                    spawnmonster(junkrat,2);
                 }else if(stagenow==3){
                     spawnmonster(pharah, 35);
                     spawnmonster(lucio, 8);
@@ -146,6 +153,8 @@ public class Maingame extends BasicGame {
                     spawnmonster(reinhardt, 14);
                     spawnmonster(mercy, 15);
                     spawnmonster(missile,10);
+                    spawnmonster(zenyatta,7);
+                    spawnmonster(junkrat,3);
                 }else {
                     spawnmonster(pharah, 40);
                     spawnmonster(lucio, 10);
@@ -153,6 +162,8 @@ public class Maingame extends BasicGame {
                     spawnmonster(reinhardt, 18);
                     spawnmonster(mercy, 20);
                     spawnmonster(missile,15);
+                    spawnmonster(zenyatta,8);
+                    spawnmonster(junkrat,4);
                 }
 
 
@@ -326,13 +337,11 @@ public class Maingame extends BasicGame {
 
     private void checkStage(){
         if(scorethisgame==0)stagenow=0;
-        if(10 <scorethisgame && scorethisgame <=50)stagenow=1;
+        if(15 <scorethisgame && scorethisgame <=50)stagenow=1;
         if(50 <scorethisgame && scorethisgame <=200)stagenow=2;
         if(200 <scorethisgame && scorethisgame <=500)stagenow=3;
         if(500 < scorethisgame)stagenow=4;
 
     }
-
-
 
 }
