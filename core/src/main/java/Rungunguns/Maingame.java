@@ -94,6 +94,7 @@ public class Maingame extends BasicGame {
         manager.load("Sounds/Pekora.wav", Music.class);
         manager.load("Sounds/Star Fox.wav",Music.class);
         manager.load("Sounds/flash.mp3",Sound.class);
+        manager.load("Sounds/enthu.wav",Sound.class);
         manager.finishLoading();
 
 
@@ -221,6 +222,8 @@ public class Maingame extends BasicGame {
             userInterface.displayResultMessage(g);
             userInterface.displayReturn(g);
             manager.get("Sounds/Star Fox.wav",Music.class).stop();
+            //manager.get("Sounds/enthu.wav",Sound.class).play();
+
         }
 
 
