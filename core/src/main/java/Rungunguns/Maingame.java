@@ -54,7 +54,8 @@ public class Maingame extends BasicGame {
     UserInterfaceTexture userInterfaceTexture;
 
 
-    float spawnrate , startgame ,stagenow=0;
+    float spawnrate , startgame ;
+    int stagenow=0;
 
 
 
@@ -110,64 +111,102 @@ public class Maingame extends BasicGame {
             checkinput();
             if(inGame) {
 
-                Lucio lucio = new Lucio();
-                Pharah pharah = new Pharah();
-                Mercy mercy = new Mercy();
-                Tracer tracer = new Tracer();
-                Reinhardt reinhardt = new Reinhardt();
-                Missile missile = new Missile();
-                Zenyatta zenyatta = new Zenyatta();
-                Junkrat junkrat = new Junkrat();
-                Genji genji = new Genji();
+
 
                 checkStage();
-                System.out.println(stagenow);
-                if(stagenow==0){
-                    spawnmonster(pharah, 4);
-                    spawnmonster(lucio, 3);
-                    spawnmonster(tracer, 4);
-                    spawnmonster(reinhardt, 2);
-                    spawnmonster(zenyatta,3);
-                    spawnmonster(junkrat,2);
-                    spawnmonster(genji,2);
-                }else if(stagenow==1){
-                    spawnmonster(pharah, 6);
-                    spawnmonster(lucio, 5);
-                    spawnmonster(tracer, 6);
-                    spawnmonster(reinhardt, 4);
-                    spawnmonster(mercy, 5);
-                    spawnmonster(zenyatta,5);
-                    spawnmonster(junkrat,4);
-                    spawnmonster(genji,4);
-                }else if(stagenow==2){
-                    spawnmonster(pharah, 11);
-                    spawnmonster(lucio, 10);
-                    spawnmonster(tracer, 11);
-                    spawnmonster(reinhardt, 10);
-                    spawnmonster(mercy, 10);
-                    spawnmonster(zenyatta,10);
-                    spawnmonster(junkrat,10);
-                    spawnmonster(genji,10);
-                }else if(stagenow==3){
-                    spawnmonster(pharah, 35);
-                    spawnmonster(lucio, 8);
-                    spawnmonster(tracer, 30);
-                    spawnmonster(reinhardt, 14);
-                    spawnmonster(mercy, 15);
-                    spawnmonster(missile,10);
-                    spawnmonster(zenyatta,7);
-                    spawnmonster(junkrat,3);
-                }else {
-                    spawnmonster(pharah, 40);
-                    spawnmonster(lucio, 10);
-                    spawnmonster(tracer, 37);
-                    spawnmonster(reinhardt, 18);
-                    spawnmonster(mercy, 20);
-                    spawnmonster(missile,15);
-                    spawnmonster(zenyatta,8);
-                    spawnmonster(junkrat,4);
+                switch (stagenow){
+                    case 0:
+                        spawnmonster(new Pharah(), 4);
+                        spawnmonster(new Lucio(), 3);
+                        spawnmonster(new Tracer(), 4);
+                        spawnmonster(new Reinhardt(), 2);
+                        spawnmonster(new Zenyatta(),3);
+                        spawnmonster(new Junkrat(),2);
+                        spawnmonster(new Genji(),2);break;
+                    case 1:
+                        spawnmonster(new Pharah(), 6);
+                        spawnmonster(new Lucio(), 5);
+                        spawnmonster(new Tracer(), 6);
+                        spawnmonster(new Reinhardt(), 4);
+                        spawnmonster(new Mercy(), 5);
+                        spawnmonster(new Zenyatta(),5);
+                        spawnmonster(new Junkrat(),4);
+                        spawnmonster(new Genji(),4);break;
+                    case 2:
+                        spawnmonster(new Pharah(), 11);
+                        spawnmonster(new Lucio(), 10);
+                        spawnmonster(new Tracer(), 11);
+                        spawnmonster(new Reinhardt(), 10);
+                        spawnmonster(new Mercy(), 10);
+                        spawnmonster(new Zenyatta(),10);
+                        spawnmonster(new Junkrat(),10);
+                        spawnmonster(new Genji(),10);break;
+                    case 3:
+                        spawnmonster(new Pharah(), 35);
+                        spawnmonster(new Lucio(), 8);
+                        spawnmonster(new Tracer(), 30);
+                        spawnmonster(new Reinhardt(), 14);
+                        spawnmonster(new Mercy(), 15);
+                        spawnmonster(new Missile(),10);
+                        spawnmonster(new Zenyatta(),7);
+                        spawnmonster(new Junkrat(),3);
+                        break;
+                    case 4:
+                        spawnmonster(new Pharah(), 40);
+                        spawnmonster(new Lucio(), 10);
+                        spawnmonster(new Tracer(), 37);
+                        spawnmonster(new Reinhardt(), 18);
+                        spawnmonster(new Mercy(), 20);
+                        spawnmonster(new Missile(),15);
+                        spawnmonster(new Zenyatta(),8);
+                        spawnmonster(new Junkrat(),4);break;
                 }
-
+               /* if(stagenow==0){
+                    spawnmonster(new Pharah(), 4);
+                    spawnmonster(new Lucio(), 3);
+                    spawnmonster(new Tracer(), 4);
+                    spawnmonster(new Reinhardt(), 2);
+                    spawnmonster(new Zenyatta(),3);
+                    spawnmonster(new Junkrat(),2);
+                    spawnmonster(new Genji(),2);
+                }else if(stagenow==1){
+                    spawnmonster(new Pharah(), 6);
+                    spawnmonster(new Lucio(), 5);
+                    spawnmonster(new Tracer(), 6);
+                    spawnmonster(new Reinhardt(), 4);
+                    spawnmonster(new Mercy(), 5);
+                    spawnmonster(new Zenyatta(),5);
+                    spawnmonster(new Junkrat(),4);
+                    spawnmonster(new Genji(),4);
+                }else if(stagenow==2){
+                    spawnmonster(new Pharah(), 11);
+                    spawnmonster(new Lucio(), 10);
+                    spawnmonster(new Tracer(), 11);
+                    spawnmonster(new Reinhardt(), 10);
+                    spawnmonster(new Mercy(), 10);
+                    spawnmonster(new Zenyatta(),10);
+                    spawnmonster(new Junkrat(),10);
+                    spawnmonster(new Genji(),10);
+                }else if(stagenow==3){
+                    spawnmonster(new Pharah(), 35);
+                    spawnmonster(new Lucio(), 8);
+                    spawnmonster(new Tracer(), 30);
+                    spawnmonster(new Reinhardt(), 14);
+                    spawnmonster(new Mercy(), 15);
+                    spawnmonster(new Missile(),10);
+                    spawnmonster(new Zenyatta(),7);
+                    spawnmonster(new Junkrat(),3);
+                }else {
+                    spawnmonster(new Pharah(), 40);
+                    spawnmonster(new Lucio(), 10);
+                    spawnmonster(new Tracer(), 37);
+                    spawnmonster(new Reinhardt(), 18);
+                    spawnmonster(new Mercy(), 20);
+                    spawnmonster(new Missile(),15);
+                    spawnmonster(new Zenyatta(),8);
+                    spawnmonster(new Junkrat(),4);
+                }
+*/
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
