@@ -129,7 +129,7 @@ public class Maingame extends BasicGame {
                     spawnmonster(reinhardt, 2);
                     spawnmonster(zenyatta,3);
                     spawnmonster(junkrat,2);
-                    spawnmonster(genji,20);
+                    spawnmonster(genji,2);
                 }else if(stagenow==1){
                     spawnmonster(pharah, 6);
                     spawnmonster(lucio, 5);
