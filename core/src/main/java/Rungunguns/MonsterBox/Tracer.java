@@ -36,7 +36,7 @@ public class Tracer extends Monster {
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth-35, nyouronHeight-20); //ขนาด
+        return new CollisionBox(tempX, tempY, nyouronWidth-35, nyouronHeight-20); //ขนาดhitbox
     }
     @Override
     protected void calcMonsterYPos() {

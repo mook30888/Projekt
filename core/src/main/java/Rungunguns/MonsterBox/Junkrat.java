@@ -40,7 +40,7 @@ public class Junkrat extends Monster {
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth-45, nyouronHeight-30); //ขนาด
+        return new CollisionBox(tempX, tempY, nyouronWidth-45, nyouronHeight-30); //ขนาดhitbox
     }
     @Override
     protected void calcMonsterYPos() {

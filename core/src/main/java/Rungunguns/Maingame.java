@@ -30,7 +30,6 @@ public class Maingame extends BasicGame {
     private static float GAME_GRAVITY = 0.6f;
     private static int scorethisgame = 0;
     private static float GAME_FLYING_SPEED = 8f;
-    private static boolean IS_ROTATING = false;
     private static boolean IS_TESTING = false;
 
     private boolean inGame, isDead,Zshoot=true,Xshoot=false;
@@ -51,8 +50,6 @@ public class Maingame extends BasicGame {
     BackgroundTexture backgroundTexture;
     List<Monster>  monsters;
     UserInterface userInterface;
-    UserInterfaceTexture userInterfaceTexture;
-
 
     float spawnrate , startgame ;
     int stagenow=0;
@@ -95,8 +92,8 @@ public class Maingame extends BasicGame {
         manager.load("Sounds/Star Fox.wav",Music.class);
         manager.load("Sounds/flash.mp3",Sound.class);
         manager.load("Sounds/enthu.wav",Sound.class);
+        manager.load("Sounds/crash.mp3",Sound.class);
         manager.finishLoading();
-
 
     }
     
@@ -110,8 +107,6 @@ public class Maingame extends BasicGame {
         } else {
             checkinput();
             if(inGame) {
-
-
 
                 checkStage();
                 switch (stagenow){
@@ -164,8 +159,6 @@ public class Maingame extends BasicGame {
                         spawnmonster(new Junkrat(),4);break;
                 }
 
-
-
                 List<Bullet> toDel = new ArrayList<Bullet>();
                 List<Monster> toRemove = new ArrayList<Monster>();
                 List<Grenade> toDelete = new ArrayList<Grenade>();
@@ -202,12 +195,12 @@ public class Maingame extends BasicGame {
                 for (Grenade gre : grenades) {
                     gre.GrenadeisOutOfScreen(grenades, toDelete, GAME_HEIGHT - ground1.getGroundTextureHeight() - player.getPlayerTextureHeight());
                     gre.update(ground1);
+
                 }
 
                 bullets.removeAll(toDel);
                 grenades.removeAll(toDelete);
                 monsters.removeAll(toRemove);
-
 
                 player.update(inputHandler.arrowupPressed(), GAME_HEIGHT - ground1.getGroundTextureHeight(), delta);
                 ground1.update();
@@ -215,7 +208,6 @@ public class Maingame extends BasicGame {
                 background1.update();
                 background2.update();
             }
-
 
         }
 
@@ -249,7 +241,6 @@ public class Maingame extends BasicGame {
         userInterface.displayScore(g,scorethisgame);
 
         if(!inGame){
-            //userInterface.displayHighscore(g,highScore);
             userInterface.displayStartMessage(g);
             userInterface.displayZX(g);
             userInterface.displayUp(g);
@@ -261,8 +252,7 @@ public class Maingame extends BasicGame {
             userInterface.displayHighscore(g,scorethisgame);
             userInterface.displayResultMessage(g);
             userInterface.displayReturn(g);
-            manager.get("Sounds/Star Fox.wav",Music.class).stop();
-
+           manager.get("Sounds/Star Fox.wav",Music.class).stop();
 
 
         }
@@ -271,9 +261,11 @@ public class Maingame extends BasicGame {
     }
 
     void setDead() {
-        isDead = true;   //อมตะ
+        isDead = true;
         FLYING_SPEED = 0f;
         GRAVITY = 0f;
+        manager.get("Sounds/crash.mp3", Sound.class);
+
     }
 
     float randomFloatMinMax(float min, float max) {
@@ -282,7 +274,7 @@ public class Maingame extends BasicGame {
         return leftLimit + new Random().nextFloat() * (rightLimit - leftLimit);
     }
 
-    public static int getScore(){return scorethisgame;}  //เผื่อเรียก
+    public static int getScore(){return scorethisgame;}
 
     public void spawnmonster(Monster a,float spawnrate){
         if(randomFloatMinMax(1,1000) < spawnrate ){
@@ -331,7 +323,6 @@ public class Maingame extends BasicGame {
             player.atground(GAME_HEIGHT - ground1.getGroundTextureHeight()-player.getPlayerTextureHeight());
         }
     }
-
 
     private void checkStage(){
         if(scorethisgame==0)stagenow=0;

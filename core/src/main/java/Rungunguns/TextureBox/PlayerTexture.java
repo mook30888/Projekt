@@ -13,7 +13,7 @@ public class PlayerTexture {
     private static final String PLAYER_SPRITE_SHEET_LOCATION = "Mccree Running Sheet.png";
     private static final String SHOOTING_SPRITE_SHEET_LOCATION = "Mccree Shooting Sheet.png";
 
-    private float frameDuration = 0.12f;
+    private float frameDuration = 0.06f;
 
     protected Texture spriteTexture = new Texture(PLAYER_SPRITE_SHEET_LOCATION);
     protected Texture shootingTexture = new Texture(SHOOTING_SPRITE_SHEET_LOCATION);
@@ -32,11 +32,11 @@ public class PlayerTexture {
         playerAnimation.addFrame(playerSpriteSheet.getSprite(6),frameDuration);
         playerAnimation.addFrame(playerSpriteSheet.getSprite(7),frameDuration);
 
-        playershooting.addFrame(ShootingSpriteSheet.getSprite(0),frameDuration/3);
-        playershooting.addFrame(ShootingSpriteSheet.getSprite(1),frameDuration/3);
-        playershooting.addFrame(ShootingSpriteSheet.getSprite(2),frameDuration/3);
-        playershooting.addFrame(ShootingSpriteSheet.getSprite(3),frameDuration/3);
-        playershooting.addFrame(ShootingSpriteSheet.getSprite(4),frameDuration/3);
+        playershooting.addFrame(ShootingSpriteSheet.getSprite(0),frameDuration);
+        playershooting.addFrame(ShootingSpriteSheet.getSprite(1),frameDuration);
+        playershooting.addFrame(ShootingSpriteSheet.getSprite(2),frameDuration);
+        playershooting.addFrame(ShootingSpriteSheet.getSprite(3),frameDuration);
+        playershooting.addFrame(ShootingSpriteSheet.getSprite(4),frameDuration);
 
     }
 

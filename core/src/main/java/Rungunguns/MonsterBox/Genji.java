@@ -7,7 +7,7 @@ import org.mini2Dx.core.engine.geom.CollisionBox;
 import org.mini2Dx.core.graphics.Animation;
 import org.mini2Dx.core.graphics.SpriteSheet;
 
-//ปัดลูกปืนได้ ปืนXจะยิงไม่โดน
+//หลบลูกปืนได้ ปืนXจะยิงไม่โดน
 
 public class Genji extends Monster {
 
@@ -38,7 +38,7 @@ public class Genji extends Monster {
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth-59, nyouronHeight-85); //ขนาด
+        return new CollisionBox(tempX, tempY, nyouronWidth-59, nyouronHeight-85); //ขนาดhitbox
     }
     @Override
     protected void calcMonsterYPos() {

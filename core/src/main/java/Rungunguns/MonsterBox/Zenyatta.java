@@ -55,7 +55,7 @@ public class Zenyatta extends Monster {
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth-60, nyouronHeight-69); //ขนาด
+        return new CollisionBox(tempX, tempY, nyouronWidth-60, nyouronHeight-69); //ขนาดhitbox
     }
     @Override
     protected void calcMonsterYPos() {

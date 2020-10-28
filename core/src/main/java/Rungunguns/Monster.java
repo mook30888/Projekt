@@ -15,8 +15,6 @@ import static Rungunguns.Maingame.GAME_HEIGHT;
 import static Rungunguns.Maingame.GRAVITY;
 
 public class Monster extends Hazards{
-    public float spawnrate;
-    protected boolean isRotating;
     protected Texture nyouronTexture;
     protected  float frameDuration = 0.12f;
    // protected Color monsterscolor;
@@ -60,10 +58,8 @@ public class Monster extends Hazards{
     }
 
     public void render(Graphics g){
-        //g.drawTexture(nyouronTexture, point.getX(),point.getY());
-//        DrawPlayerCollisionBox(g); //กรอบแดงแบบwallhack
+        //DrawPlayerCollisionBox(g); //กรอบแดงแบบwallhack
         monstersAnimation.draw(g,nyouronX,nyouronY);
-        //g.drawTexture(monstersAnimation.getFrame(5).getTexture(),nyouronX,nyouronY);
     }
 
    public boolean mongotshot(List<Bullet> bullets, List<Bullet> toDelete){
@@ -89,10 +85,6 @@ public class Monster extends Hazards{
         }
         return nyouroncollisionBox.getX()  <= 0;
     }
-
-
-
-
 
 
     protected void calcMonsterYPos() {

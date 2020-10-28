@@ -36,7 +36,7 @@ public class Lucio extends Monster {
     protected CollisionBox generateCollisionRectAt(float xPos, float yPos) {
         int tempX = (int) xPos;
         int tempY = (int) yPos;
-        return new CollisionBox(tempX, tempY, nyouronWidth-60, nyouronHeight-50); //ขนาด
+        return new CollisionBox(tempX, tempY, nyouronWidth-60, nyouronHeight-50); //ขนาดhitbox
     }
     @Override
     protected void calcMonsterYPos() {
