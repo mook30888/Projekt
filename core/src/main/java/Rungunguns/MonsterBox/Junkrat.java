@@ -27,7 +27,7 @@ public class Junkrat extends Monster {
 
         monstersAnimation.setLooping(true);
 
-        monsterscolor = Color.GOLDENROD;
+       // monsterscolor = Color.GOLDENROD;
 
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();

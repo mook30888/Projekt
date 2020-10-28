@@ -24,7 +24,7 @@ public class Mercy extends Monster {
                 monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
-        monsterscolor = Color.YELLOW;
+        //monsterscolor = Color.YELLOW;
 
         monstersAnimation.setLooping(true);
 

@@ -39,7 +39,7 @@ public class Zenyatta extends Monster {
         monstersAnimation.addFrame(monsterSpriteSheet.getSprite(12), frameDuration/2);
 //        }
         monstersAnimation.setLooping(true);
-        monsterscolor = Color.GOLD;
+        //monsterscolor = Color.GOLD;
 
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();

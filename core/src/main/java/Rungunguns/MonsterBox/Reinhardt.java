@@ -21,7 +21,7 @@ public class Reinhardt extends Monster {
             monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration/1.4f);
         }
 
-        monsterscolor = Color.GRAY;
+        //monsterscolor = Color.GRAY;
 
         monstersAnimation.setLooping(true);
 

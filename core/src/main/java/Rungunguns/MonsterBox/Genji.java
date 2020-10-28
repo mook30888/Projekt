@@ -25,7 +25,7 @@ public class Genji extends Monster {
 
         monstersAnimation.setLooping(true);
 
-        monsterscolor = Color.OLIVE;
+        //monsterscolor = Color.OLIVE;
 
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();

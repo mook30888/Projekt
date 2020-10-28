@@ -21,7 +21,7 @@ public class Pharah extends Monster {
             monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
-        monsterscolor = Color.ROYAL;
+        //monsterscolor = Color.ROYAL;
 
         monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();

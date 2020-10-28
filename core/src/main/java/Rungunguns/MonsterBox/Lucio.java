@@ -22,7 +22,7 @@ public class Lucio extends Monster {
             monstersAnimation.addFrame(monsterSpriteSheet.getSprite(i), frameDuration);
         }
 
-        monsterscolor = Color.GREEN;
+        //monsterscolor = Color.GREEN;
 
         monstersAnimation.setLooping(true);
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();

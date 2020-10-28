@@ -23,7 +23,7 @@ public class Tracer extends Monster {
 
         monstersAnimation.setLooping(true);
 
-        monsterscolor = Color.ORANGE;
+        //monsterscolor = Color.ORANGE;
 
         nyouronHeight = monsterSpriteSheet.getSprite(0).getHeight();
         nyouronWidth = monsterSpriteSheet.getSprite(0).getWidth();

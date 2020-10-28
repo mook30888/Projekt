@@ -19,7 +19,7 @@ public class Monster extends Hazards{
     protected boolean isRotating;
     protected Texture nyouronTexture;
     protected  float frameDuration = 0.12f;
-    protected Color monsterscolor;
+   // protected Color monsterscolor;
 
     protected SpriteSheet monsterSpriteSheet;
     protected Animation monstersAnimation;
@@ -102,7 +102,6 @@ public class Monster extends Hazards{
         nyouroncollisionBox.set(nyouronX,nyouronY); //ตำแหน่งhitbox
     }
     protected void DrawPlayerCollisionBox(Graphics g) {
-        g.setColor(monsterscolor);
         nyouronCollisionVertices = nyouroncollisionBox.getVertices();
 
         for(int i=0; i<7; i=i+2){
