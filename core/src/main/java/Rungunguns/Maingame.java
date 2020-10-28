@@ -116,7 +116,7 @@ public class Maingame extends BasicGame {
                 checkStage();
                 switch (stagenow){
                     case 0:
-                        spawnmonster(new Pharah(), 4);
+                        spawnmonster(new Pharah(), 10);
                         spawnmonster(new Lucio(), 3);
                         spawnmonster(new Tracer(), 4);
                         spawnmonster(new Reinhardt(), 2);
@@ -124,10 +124,10 @@ public class Maingame extends BasicGame {
                         spawnmonster(new Junkrat(),2);
                         spawnmonster(new Genji(),2);break;
                     case 1:
-                        spawnmonster(new Pharah(), 6);
+                        spawnmonster(new Pharah(), 15);
                         spawnmonster(new Lucio(), 5);
                         spawnmonster(new Tracer(), 6);
-                        spawnmonster(new Reinhardt(), 4);
+                        spawnmonster(new Reinhardt(), 6);
                         spawnmonster(new Mercy(), 5);
                         spawnmonster(new Zenyatta(),5);
                         spawnmonster(new Junkrat(),4);
@@ -137,8 +137,9 @@ public class Maingame extends BasicGame {
                         spawnmonster(new Lucio(), 10);
                         spawnmonster(new Tracer(), 11);
                         spawnmonster(new Reinhardt(), 10);
-                        spawnmonster(new Mercy(), 10);
-                        spawnmonster(new Zenyatta(),10);
+                        spawnmonster(new Mercy(), 5);
+                        spawnmonster(new Zenyatta(),5);
+                        spawnmonster(new Missile(),10);
                         spawnmonster(new Junkrat(),10);
                         spawnmonster(new Genji(),10);break;
                     case 3:
@@ -146,9 +147,10 @@ public class Maingame extends BasicGame {
                         spawnmonster(new Lucio(), 8);
                         spawnmonster(new Tracer(), 30);
                         spawnmonster(new Reinhardt(), 14);
-                        spawnmonster(new Mercy(), 15);
+                        spawnmonster(new Mercy(), 5);
                         spawnmonster(new Missile(),10);
-                        spawnmonster(new Zenyatta(),7);
+                        spawnmonster(new Missile(),15);
+                        spawnmonster(new Zenyatta(),5);
                         spawnmonster(new Junkrat(),3);
                         break;
                     case 4:
@@ -161,52 +163,7 @@ public class Maingame extends BasicGame {
                         spawnmonster(new Zenyatta(),8);
                         spawnmonster(new Junkrat(),4);break;
                 }
-               /* if(stagenow==0){
-                    spawnmonster(new Pharah(), 4);
-                    spawnmonster(new Lucio(), 3);
-                    spawnmonster(new Tracer(), 4);
-                    spawnmonster(new Reinhardt(), 2);
-                    spawnmonster(new Zenyatta(),3);
-                    spawnmonster(new Junkrat(),2);
-                    spawnmonster(new Genji(),2);
-                }else if(stagenow==1){
-                    spawnmonster(new Pharah(), 6);
-                    spawnmonster(new Lucio(), 5);
-                    spawnmonster(new Tracer(), 6);
-                    spawnmonster(new Reinhardt(), 4);
-                    spawnmonster(new Mercy(), 5);
-                    spawnmonster(new Zenyatta(),5);
-                    spawnmonster(new Junkrat(),4);
-                    spawnmonster(new Genji(),4);
-                }else if(stagenow==2){
-                    spawnmonster(new Pharah(), 11);
-                    spawnmonster(new Lucio(), 10);
-                    spawnmonster(new Tracer(), 11);
-                    spawnmonster(new Reinhardt(), 10);
-                    spawnmonster(new Mercy(), 10);
-                    spawnmonster(new Zenyatta(),10);
-                    spawnmonster(new Junkrat(),10);
-                    spawnmonster(new Genji(),10);
-                }else if(stagenow==3){
-                    spawnmonster(new Pharah(), 35);
-                    spawnmonster(new Lucio(), 8);
-                    spawnmonster(new Tracer(), 30);
-                    spawnmonster(new Reinhardt(), 14);
-                    spawnmonster(new Mercy(), 15);
-                    spawnmonster(new Missile(),10);
-                    spawnmonster(new Zenyatta(),7);
-                    spawnmonster(new Junkrat(),3);
-                }else {
-                    spawnmonster(new Pharah(), 40);
-                    spawnmonster(new Lucio(), 10);
-                    spawnmonster(new Tracer(), 37);
-                    spawnmonster(new Reinhardt(), 18);
-                    spawnmonster(new Mercy(), 20);
-                    spawnmonster(new Missile(),15);
-                    spawnmonster(new Zenyatta(),8);
-                    spawnmonster(new Junkrat(),4);
-                }
-*/
+
 
 
                 List<Bullet> toDel = new ArrayList<Bullet>();
@@ -220,7 +177,7 @@ public class Maingame extends BasicGame {
                 for (Monster monster : monsters) {
                     monster.update(ground1, delta);
                     if (monster.mongotshot(bullets, toDel) || monster.mongotbomb(grenades, toDelete)) {
-                        if (monster.hitpoint == 0) {
+                        if (monster.hitpoint <= 0) {
                             toRemove.add(monster);
                             scorethisgame += 1; //mons ตายเพิ่ม 1
                             if (scorethisgame % 10 == 0) {

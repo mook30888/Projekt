@@ -82,7 +82,7 @@ public class Monster extends Hazards{
         for (Grenade grenade : grenades) {
 
             if(nyouroncollisionBox.intersects(grenade.collisionBox)) {
-                hitpoint-=2;
+                hitpoint-=5;
                 toDelete.add(grenade);
                 return true;
             }
